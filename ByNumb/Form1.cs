@@ -158,7 +158,7 @@ namespace ByNumb
             public void setPrice(double price) { this.price = price; }
 
             public int getDefenseBonus() { return defenseBonus; }
-            public void setDefenseBonus(int attackBonus) { this.defenseBonus = attackBonus; }
+            public void setDefenseBonus(int defenseBonus) { this.defenseBonus = defenseBonus; }
         }
         class Enemy
         {
@@ -173,11 +173,11 @@ namespace ByNumb
             private int experienceReward = 0;
 
             // Init
-            public Enemy(string name, int level, int attack, int defense, 
-                int healthPoints, int maxHealthPoints, int goldReward, int experienceReward, Player opponent)
+            public Enemy(string name, int level, int attack, int defense, int healthPoints, int maxHealthPoints,
+                int goldReward, int experienceReward, int opponentLevel, Random random)
             {
                 this.name = name;
-                this.level = (opponent.getLevel() + 1);
+                this.level = Math.Max(1, opponentLevel + random.Next(-1, 2));
                 this.attack = attack;
                 this.defense = defense;
                 this.healthPoints = healthPoints;
@@ -248,6 +248,11 @@ namespace ByNumb
             // Get-set'ters
 
             // Methods
+        }
+
+        private void gateInFate_Title_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/sh7t/Emolod13_HW/");
         }
     }
 }
