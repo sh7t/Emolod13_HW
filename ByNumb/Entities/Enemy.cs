@@ -1,5 +1,6 @@
 ﻿using System;
 using ByNumb;
+using ByNumb.Services;
 
 
 namespace ByNumb.Entities
@@ -14,7 +15,7 @@ namespace ByNumb.Entities
 
         // Init
         public Enemy(string name, int attack, int defense, int maxHealthPoints,
-            int goldReward, int experienceReward, Random random, int Level) : base(name)
+            int goldReward, int experienceReward, GameEngine gameEngine) : base(name)
         {
             this.attack = attack;
             this.defense = defense;
@@ -22,7 +23,7 @@ namespace ByNumb.Entities
             this.goldReward = goldReward;
             this.experienceReward = experienceReward;
 
-            level = Math.Max(1, Level + random.Next(-1, 2));
+            level = gameEngine.CalculateEnemyLevel();
             healthPoints = maxHealthPoints;
         }
 
