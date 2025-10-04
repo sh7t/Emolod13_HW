@@ -6,30 +6,23 @@ namespace ByNumb.Entities
     {
         // Fields
         private int experience = 0, experienceForLevelUp = 10;
-        private int strength = 0;
-        private int endurance = 0;
-        private int agility = 0;
-        private int intelligence = 0;
+        private int strength = 1;
+        private int endurance = 1;
+        private int agility = 1;
+        private int intelligence = 1;
         private int mana = 0, maxMana = 0;
         private int gold = 0;
         private double criticalChance = 0;
         private Weapon weapon = null;
         private Armor armor = null;
+        private bool DidBlocked = false;
 
         // Init
-        public Player(string name, int strength, int endurance, int agility, int intelligence) : base(name)
+        public Player(string name) : base(name)
         {
-            this.name = name;
-            this.strength = strength;
-            this.endurance = endurance;
-            this.agility = agility;
-            this.intelligence = intelligence;
-
-            maxHealthPoints = this.endurance * 10;
-            maxMana = this.intelligence * 5;
+            maxHealthPoints = healthPoints = this.endurance * 10;
+            maxMana = mana = this.intelligence * 5;
             criticalChance = this.agility * 0.5;
-            healthPoints = maxHealthPoints;
-            mana = maxMana;
         }
 
         // Get-set'ters
@@ -70,9 +63,59 @@ namespace ByNumb.Entities
         public void setArmor(Armor armor) { this.armor = armor; }
 
         // Methods
+        public int CommonAttack()
+        {
+            if (DidBlocked)
+            {
+                DidBlocked = false;
+                return (CalculateAttackPower() / 2);
+            }
+            else
+            {
+                return CalculateAttackPower();
+            }
+        }
+        public int StrongAttack()
+        {
+            if (DidBlocked)
+            {
+                DidBlocked = false;
+                return ((CalculateAttackPower() + level*2) / 2);
+            }
+            else
+            {
+                return CalculateAttackPower() + level*2;
+            }
+        }
+        public int Defense()
+        {
+            if (DidBlocked)
+            {
+                DidBlocked = false;
+                return 0;
+            }
+            else
+            {
+                DidBlocked = true;
+                return CalculateDefensePotential();
+            }
+        }
+        public int Healing()
+        {
+            if (DidBlocked)
+            {
+                DidBlocked = false;
+                return ((maxHealthPoints / 10)*2);
+            }
+            else
+            {
+                return maxHealthPoints / 10;
+            }
+        }
+
         public int CalculateAttackPower()
         {
-            if (armor != null)
+            if (weapon != null)
             {
                 return (strength + weapon.getAttackBonus());
             }
@@ -86,6 +129,31 @@ namespace ByNumb.Entities
                 return (agility + armor.getDefenseBonus());
             }
             return agility;
+        }
+        
+        public string ShowCharacteristics()
+        {
+            string characteristics = ($"Characteristics:\nName: {getName()}\nLevel: {getLevel()}" +
+                                      $"\nExperience: {getExperience()}/{getExperienceForLevelUp()}\nHP: {getHealthPoints()}/{getMaxHealthPoints()}" +
+                                      $"\nMana: {getMana()}/{getMaxMana()}" +
+                                      $"\nStrength: {getStrength()}\nEndurance: {getEndurance()}\nAgility: {getAgility()}\nIntelligence: {getIntelligence()}" +
+                                      $"\nGold: {getGold()}\nCriticalChance: {getCriticalChance()}%");
+            if (weapon != null && armor != null)
+            {
+                return (characteristics + "\nWeapon: {weapon.getName()}\nArmor: {armor.getName()}");
+            }
+            else if (armor == null && weapon != null)
+            {
+                return (characteristics + "\nWeapon: {weapon.getName()}");
+            }
+            else if (armor != null && weapon == null)
+            {
+                return (characteristics + "\nArmor: {armor.getName()}");
+            }
+            else
+            {
+                return characteristics;
+            }
         }
     }
 }

@@ -1,9 +1,5 @@
 ﻿using ByNumb.Items;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ByNumb.Services
 {
@@ -24,7 +20,7 @@ namespace ByNumb.Services
         public Armor GenerateArmor()
         {
             Random random = new Random();
-            Armor armor = new Armor(armorNames[random.Next(0, armorNames.Length)], 0, 0);
+            Armor armor = new Armor(armorNames[random.Next(0, armorNames.Length)], 0, 0); // unfinished
             return armor;
         }
 
@@ -34,7 +30,7 @@ namespace ByNumb.Services
             Armor[] armorArray = new Armor[arrayLength];
             for (int i = 0; i < armorArray.Length; i++)
             {
-                armorArray[i] = new Armor(armorNames[random.Next(0, armorNames.Length)], 0, 0);
+                armorArray[i] = GenerateArmor();
             }
             return armorArray;
         }

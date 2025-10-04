@@ -15,16 +15,15 @@ namespace ByNumb.Entities
 
         // Init
         public Enemy(string name, int attack, int defense, int maxHealthPoints,
-            int goldReward, int experienceReward, GameEngine gameEngine) : base(name)
+            int goldReward, int experienceReward) : base(name)
         {
             this.attack = attack;
             this.defense = defense;
-            this.maxHealthPoints = maxHealthPoints;
+            this.maxHealthPoints = healthPoints = maxHealthPoints;
             this.goldReward = goldReward;
             this.experienceReward = experienceReward;
 
-            level = gameEngine.CalculateEnemyLevel();
-            healthPoints = maxHealthPoints;
+            level = 0; // unfinished, gameEngine.CalculateEnemyLevel()
         }
 
         // Get-set'ters

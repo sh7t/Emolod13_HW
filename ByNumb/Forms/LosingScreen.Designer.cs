@@ -1,6 +1,6 @@
 ﻿namespace ByNumb.Forms
 {
-    partial class Shop
+    partial class LosingScreen
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Shop));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LosingScreen));
             this.SuspendLayout();
             // 
-            // Shop
+            // LosingScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -39,7 +39,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(740, 423);
             this.MinimumSize = new System.Drawing.Size(740, 423);
-            this.Name = "Shop";
+            this.Name = "LosingScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RPG: Reign of Pure Glory";
             this.ResumeLayout(false);
