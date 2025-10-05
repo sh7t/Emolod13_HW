@@ -20,8 +20,8 @@ namespace ByNumb.Entities
         // Init
         public Player(string name) : base(name)
         {
-            maxHealthPoints = healthPoints = this.endurance * 10;
-            maxMana = mana = this.intelligence * 5;
+            maxHealthPoints = healthPoints = this.endurance * 100;
+            maxMana = mana = this.intelligence * 50;
             criticalChance = this.agility * 0.5;
         }
 

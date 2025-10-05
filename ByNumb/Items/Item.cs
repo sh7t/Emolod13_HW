@@ -6,10 +6,10 @@ namespace ByNumb.Items
     {
         // Fields
         protected string name = null;
-        protected double price = 0;
+        protected int price = 0;
 
         // Init
-        public Item(string name, double price)
+        public Item(string name, int price)
         {
             this.name = name;
             this.price = price;
@@ -19,8 +19,8 @@ namespace ByNumb.Items
         public string getName() { return name; }
         public void setName(string name) { this.name = name; }
 
-        public double getPrice() { return price; }
-        public void setPrice(double price) { this.price = price; }
+        public int getPrice() { return price; }
+        public void setPrice(int price) { this.price = price; }
 
         // Methods
     }

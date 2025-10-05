@@ -29,22 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeScreen));
-            this.MainMenuImage = new System.Windows.Forms.PictureBox();
             this.playButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.MainMenuImage)).BeginInit();
             this.SuspendLayout();
-            // 
-            // MainMenuImage
-            // 
-            this.MainMenuImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainMenuImage.Image = global::ByNumb.Properties.Resources.MainMenu;
-            this.MainMenuImage.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.MainMenuImage.Location = new System.Drawing.Point(0, 0);
-            this.MainMenuImage.Name = "MainMenuImage";
-            this.MainMenuImage.Size = new System.Drawing.Size(724, 384);
-            this.MainMenuImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.MainMenuImage.TabIndex = 0;
-            this.MainMenuImage.TabStop = false;
             // 
             // playButton
             // 
@@ -61,9 +47,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::ByNumb.Properties.Resources.MainMenu;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(724, 384);
             this.Controls.Add(this.playButton);
-            this.Controls.Add(this.MainMenuImage);
             this.Cursor = System.Windows.Forms.Cursors.Cross;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(740, 423);
@@ -71,14 +58,11 @@
             this.Name = "HomeScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RPG: Reign of Pure Glory";
-            ((System.ComponentModel.ISupportInitialize)(this.MainMenuImage)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox MainMenuImage;
         private System.Windows.Forms.Button playButton;
     }
 }

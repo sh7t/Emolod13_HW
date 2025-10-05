@@ -17,20 +17,29 @@ namespace ByNumb.Services
         }
 
         // Methods
-        public Armor GenerateArmor()
+        public Armor GenerateArmor(int playerLevel)
         {
             Random random = new Random();
-            Armor armor = new Armor(armorNames[random.Next(0, armorNames.Length)], 0, 0); // unfinished
+
+            int minDef = 5 + (playerLevel - 1) * 2;
+            int maxDef = 15 + (playerLevel - 1) * 3;
+            int def = random.Next(minDef, maxDef+1);
+
+            Armor armor = new Armor(
+                armorNames[random.Next(0, armorNames.Length)],
+                def * (40 + random.Next(1, 11)),
+                def
+                );
             return armor;
         }
 
-        public Armor[] GenerateArmorArray(byte arrayLength)
+        public Armor[] GenerateArmorArray(byte arrayLength, int playerLevel)
         {
             Random random = new Random();
             Armor[] armorArray = new Armor[arrayLength];
             for (int i = 0; i < armorArray.Length; i++)
             {
-                armorArray[i] = GenerateArmor();
+                armorArray[i] = GenerateArmor(playerLevel);
             }
             return armorArray;
         }

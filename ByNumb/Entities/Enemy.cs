@@ -14,16 +14,15 @@ namespace ByNumb.Entities
         private int experienceReward = 0;
 
         // Init
-        public Enemy(string name, int attack, int defense, int maxHealthPoints,
-            int goldReward, int experienceReward) : base(name)
+        public Enemy(string name, int level) : base(name)
         {
-            this.attack = attack;
-            this.defense = defense;
-            this.maxHealthPoints = healthPoints = maxHealthPoints;
-            this.goldReward = goldReward;
-            this.experienceReward = experienceReward;
+            Random random = new Random();
 
-            level = 0; // unfinished, gameEngine.CalculateEnemyLevel()
+            attack = level * 5;
+            defense = level * 10;
+            maxHealthPoints = healthPoints = level * 100;
+            goldReward = 15 + (level - 1) * 10 + random.Next(1, 11);
+            experienceReward = 20 + (level - 1) * 10 + random.Next(1, 11);
         }
 
         // Get-set'ters

@@ -138,6 +138,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Assets\Icons\Reign of Pure Glory.ico" />
     <Content Include="Assets\Images\MainMenu.jpg" />
+    <None Include="Assets\Images\Player.png" />
     <Content Include="Reign of Pure Glory.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

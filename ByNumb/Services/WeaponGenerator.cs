@@ -1,5 +1,6 @@
 ﻿using ByNumb.Items;
 using System;
+using System.Security.Cryptography;
 
 namespace ByNumb.Services
 {
@@ -17,20 +18,29 @@ namespace ByNumb.Services
         }
 
         // Methods
-        public Weapon GenerateWeapon()
+        public Weapon GenerateWeapon(int playerLevel)
         {
             Random random = new Random();
-            Weapon weapon = new Weapon(weaponNames[random.Next(0, weaponNames.Length)], 0, 0); // unfinished
+
+            int minDmg = 5 + (playerLevel - 1) * 2;
+            int maxDmg = 15 + (playerLevel - 1) * 3;
+            int dmg = random.Next(minDmg, maxDmg+1);
+
+            Weapon weapon = new Weapon(
+                 weaponNames[random.Next(0, weaponNames.Length)],
+                 dmg * (40 + random.Next(1, 11)),
+                 dmg
+                 );
             return weapon;
         }
 
-        public Weapon[] GenerateWeaponArray(byte arrayLength)
+        public Weapon[] GenerateWeaponArray(byte arrayLength, int playerLevel)
         {
             Random random = new Random();
             Weapon[] weaponArray = new Weapon[arrayLength];
             for (int i = 0; i < weaponArray.Length; i++)
             {
-                weaponArray[i] = GenerateWeapon();
+                weaponArray[i] = GenerateWeapon(playerLevel);
             }
             return weaponArray;
         }

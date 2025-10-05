@@ -8,7 +8,7 @@ namespace ByNumb.Items
         private int attackBonus = 0;
 
         // Init
-        public Weapon(string name, double price, int attackBonus) : base(name, price)
+        public Weapon(string name, int price, int attackBonus) : base(name, price)
         {
             this.attackBonus = attackBonus;
         }
