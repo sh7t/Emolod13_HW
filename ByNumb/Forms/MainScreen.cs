@@ -1,4 +1,5 @@
 ﻿using ByNumb.Entities;
+using ByNumb.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,8 @@ namespace ByNumb.Forms
         private void MainScreen_Load(object sender, EventArgs e)
         {
             Player player = new Player("Player");
+            Random random = new Random();
+            GameEngine gameEngine = new GameEngine();
             playerCharacteristics.Text = player.ShowCharacteristics();
         }
     }

@@ -15,7 +15,6 @@ namespace ByNumb.Entities
         private double criticalChance = 0;
         private Weapon weapon = null;
         private Armor armor = null;
-        private bool DidBlocked = false;
 
         // Init
         public Player(string name) : base(name)
@@ -65,52 +64,19 @@ namespace ByNumb.Entities
         // Methods
         public int CommonAttack()
         {
-            if (DidBlocked)
-            {
-                DidBlocked = false;
-                return (CalculateAttackPower() / 2);
-            }
-            else
-            {
-                return CalculateAttackPower();
-            }
+            return (CalculateAttackPower() / 2); // unfinished
         }
         public int StrongAttack()
         {
-            if (DidBlocked)
-            {
-                DidBlocked = false;
-                return ((CalculateAttackPower() + level*2) / 2);
-            }
-            else
-            {
-                return CalculateAttackPower() + level*2;
-            }
+            return ((CalculateAttackPower() + level*2) / 2); // unfinished
         }
         public int Defense()
         {
-            if (DidBlocked)
-            {
-                DidBlocked = false;
-                return 0;
-            }
-            else
-            {
-                DidBlocked = true;
-                return CalculateDefensePotential();
-            }
+            return 0; // unfinished
         }
         public int Healing()
         {
-            if (DidBlocked)
-            {
-                DidBlocked = false;
-                return ((maxHealthPoints / 10)*2);
-            }
-            else
-            {
-                return maxHealthPoints / 10;
-            }
+            return ((maxHealthPoints / 10)*2); // unfinished
         }
 
         public int CalculateAttackPower()
