@@ -35,7 +35,6 @@ namespace ByNumb.Services
 
         public Armor[] GenerateArmorArray(byte arrayLength, int playerLevel)
         {
-            Random random = new Random();
             Armor[] armorArray = new Armor[arrayLength];
             for (int i = 0; i < armorArray.Length; i++)
             {

@@ -36,7 +36,6 @@ namespace ByNumb.Services
 
         public Weapon[] GenerateWeaponArray(byte arrayLength, int playerLevel)
         {
-            Random random = new Random();
             Weapon[] weaponArray = new Weapon[arrayLength];
             for (int i = 0; i < weaponArray.Length; i++)
             {

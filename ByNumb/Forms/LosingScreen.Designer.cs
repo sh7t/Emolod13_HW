@@ -1,4 +1,6 @@
-﻿namespace ByNumb.Forms
+﻿using ByNumb.Properties;
+
+namespace ByNumb.Forms
 {
     partial class LosingScreen
     {
@@ -28,15 +30,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LosingScreen));
             this.SuspendLayout();
             // 
             // LosingScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::ByNumb.Properties.Resources.LosingScreen;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(724, 384);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(740, 423);
             this.MinimumSize = new System.Drawing.Size(740, 423);
             this.Name = "LosingScreen";
@@ -47,5 +49,7 @@
         }
 
         #endregion
+
+
     }
 }

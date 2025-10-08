@@ -1,10 +1,20 @@
 ﻿using ByNumb.Entities;
+using ByNumb.Forms;
 using System;
+using System.Windows.Forms;
 
 namespace ByNumb.Services
 {
     public class GameEngine
     {
+        enum EventType
+        {
+            Idle = 1,
+            Fight,
+            Shopping,
+            Mystery
+        }
+
         // Fields
 
         // Init
@@ -12,5 +22,29 @@ namespace ByNumb.Services
         // Get-set'ters
 
         // Methods
+        public void ChooseEventType()
+        {
+            EventType eventType = (EventType)(new Random().Next(1, 5));
+
+            switch (eventType)
+            {
+                case EventType.Idle:
+                    MessageBox.Show("Nothing happened... Probably.", "Moving result", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    break;
+                case EventType.Fight:
+                    // mainscreen.hide()
+                    // fight.showdialog()
+                    break;
+                case EventType.Shopping:
+                    // mainscreen.hide()
+                    // shop.showdialog()
+                    break;
+                case EventType.Mystery:
+                    MessageBox.Show("You've found a mystery!", "Moving result", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    break;
+                default:
+                    throw new Exception("Critical error. EventGeneration proccess didn't succeed.");
+            }
+        }
     }
 }

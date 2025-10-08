@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ByNumb.Forms
 {
-    public partial class Event : Form
+    public partial class Fight : Form
     {
-        public Event()
+        public Fight()
         {
             InitializeComponent();
         }

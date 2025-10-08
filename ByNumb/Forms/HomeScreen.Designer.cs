@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeScreen));
             this.playButton = new System.Windows.Forms.Button();
+            this.playerNameTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // playButton
@@ -43,6 +44,15 @@
             this.playButton.UseVisualStyleBackColor = true;
             this.playButton.Click += new System.EventHandler(this.playButton_Click);
             // 
+            // playerNameTextBox
+            // 
+            this.playerNameTextBox.Font = new System.Drawing.Font("Impact", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.playerNameTextBox.Location = new System.Drawing.Point(245, 220);
+            this.playerNameTextBox.Name = "playerNameTextBox";
+            this.playerNameTextBox.Size = new System.Drawing.Size(250, 43);
+            this.playerNameTextBox.TabIndex = 2;
+            this.playerNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // HomeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -50,6 +60,7 @@
             this.BackgroundImage = global::ByNumb.Properties.Resources.MainMenu;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(724, 384);
+            this.Controls.Add(this.playerNameTextBox);
             this.Controls.Add(this.playButton);
             this.Cursor = System.Windows.Forms.Cursors.Cross;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -59,10 +70,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RPG: Reign of Pure Glory";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.Button playButton;
+        private System.Windows.Forms.TextBox playerNameTextBox;
     }
 }
