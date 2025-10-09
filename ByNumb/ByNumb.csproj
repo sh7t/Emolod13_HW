@@ -93,6 +93,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Services\ArmorGenerator.cs" />
+    <Compile Include="Services\CustomRandom.cs" />
     <Compile Include="Services\EnemyGenerator.cs" />
     <Compile Include="Services\GameEngine.cs" />
     <Compile Include="Services\MysteryGenerator.cs" />
@@ -140,6 +141,7 @@
     <None Include="Assets\Images\Entities\Enemy.png" />
     <Content Include="Assets\Images\Screens\MainMenu.jpg" />
     <None Include="Assets\Images\Entities\Player.png" />
+    <None Include="Assets\Images\Screens\ShopScreen.jpg" />
     <Content Include="Assets\Images\Screens\ShopScreen.png" />
     <Content Include="Reign of Pure Glory.ico" />
   </ItemGroup>

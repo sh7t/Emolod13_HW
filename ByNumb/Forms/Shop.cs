@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ByNumb.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace ByNumb.Forms
 {
     public partial class Shop : Form
     {
-        public Shop()
+        private Player player;
+        public Shop(Player player)
         {
             InitializeComponent();
+            this.player = player;
         }
+
     }
 }

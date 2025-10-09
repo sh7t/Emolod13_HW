@@ -7,7 +7,7 @@ namespace ByNumb.Services
     public class EnemyGenerator
     {
         // Fields
-        private string[] names = { };
+        private string[] names = { "Noob", "Pro", "Hacker" };
 
         // Init
         public EnemyGenerator()
@@ -18,9 +18,7 @@ namespace ByNumb.Services
         // Methods
         public Enemy GenerateEnemy(int playerLevel)
         {
-            Random random = new Random();
-
-            return new Enemy(names[random.Next(0, names.Length)], Math.Max(1, playerLevel + random.Next(-1, 2)));
+            return new Enemy(names[CustomRandom.Next(0, names.Length)], Math.Max(1, playerLevel + CustomRandom.Next(-1, 2)));
         }
     }
 }

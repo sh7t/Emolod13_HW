@@ -70,11 +70,11 @@ namespace ByNumb.Entities
         {
             return ((CalculateAttackPower() + level*2) / 2); // unfinished
         }
-        public int Defense()
+        public int Block()
         {
             return 0; // unfinished
         }
-        public int Healing()
+        public int Heal()
         {
             return ((maxHealthPoints / 10)*2); // unfinished
         }

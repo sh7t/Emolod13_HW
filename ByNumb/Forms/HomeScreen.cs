@@ -19,7 +19,7 @@ namespace ByNumb.Forms
 
         private void playButton_Click(object sender, EventArgs e)
         {
-            if (playerNameTextBox.Text.Length >= 2)
+            if (playerNameTextBox.Text.Length >= 2 && playerNameTextBox.Text.Length <= 12)
             {
                 this.Hide();
                 MainScreen mainScreen = new MainScreen(char.ToUpper(playerNameTextBox.Text[0]) + playerNameTextBox.Text.Substring(1));
@@ -28,14 +28,20 @@ namespace ByNumb.Forms
             }
             else if (playerNameTextBox.Text.Length == 0)
             {
-                MessageBox.Show("You haven't entered a name for Your character. Please go back and do so!", "Unnamed character issue", 
+                MessageBox.Show("You haven't entered a name for Your character. Please go back and do so!", "Unnamed character issue",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (playerNameTextBox.Text.Length > 12)
+            {
+                MessageBox.Show("Your character's name is too long. Please go back and rename him!", "Character name issue",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("Your character's name is too short. Please go back and rename him!", "Unnamed character issue", 
+                MessageBox.Show("Your character's name is too short. Please go back and rename him!", "Character name issue",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }        
+            }
+            playerNameTextBox.Clear();
         }
     }
 }

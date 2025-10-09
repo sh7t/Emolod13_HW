@@ -14,24 +14,22 @@ namespace ByNumb.Forms
 {
     public partial class MainScreen : Form
     {
-        string playerName = "";
+        private Player player;
         public MainScreen(string playerName)
         {
             InitializeComponent();
-            this.playerName = playerName;
+            player = new Player(playerName);
         }
 
         private void MainScreen_Load(object sender, EventArgs e)
         {
-            Player player = new Player(playerName);
-            // static Random random = new Random();
-            // static GameEngine gameEngine = new GameEngine();
+           
             playerCharacteristics.Text = player.ShowCharacteristics();
         }
 
         private void turnButton_Click(object sender, EventArgs e)
         {
-            // gameEngine.ChooseEventType();
+            GameEngine.ChooseEventType(this, player);
         }
     }
 }

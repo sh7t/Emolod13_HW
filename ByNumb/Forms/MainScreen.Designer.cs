@@ -53,6 +53,7 @@
             this.turnButton.TabIndex = 3;
             this.turnButton.Text = "Go further!";
             this.turnButton.UseVisualStyleBackColor = true;
+            this.turnButton.Click += new System.EventHandler(this.turnButton_Click);
             // 
             // playerImage
             // 

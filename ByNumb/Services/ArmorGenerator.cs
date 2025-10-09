@@ -1,5 +1,4 @@
 ﻿using ByNumb.Items;
-using System;
 
 namespace ByNumb.Services
 {
@@ -19,15 +18,13 @@ namespace ByNumb.Services
         // Methods
         public Armor GenerateArmor(int playerLevel)
         {
-            Random random = new Random();
-
             int minDef = 5 + (playerLevel - 1) * 2;
             int maxDef = 15 + (playerLevel - 1) * 3;
-            int def = random.Next(minDef, maxDef+1);
+            int def = CustomRandom.Next(minDef, maxDef+1);
 
             Armor armor = new Armor(
-                armorNames[random.Next(0, armorNames.Length)],
-                def * (40 + random.Next(1, 11)),
+                armorNames[CustomRandom.Next(0, armorNames.Length)],
+                def * (40 + CustomRandom.Next(1, 11)),
                 def
                 );
             return armor;
