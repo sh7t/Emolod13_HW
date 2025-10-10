@@ -7,7 +7,29 @@ namespace ByNumb.Services
     public class EnemyGenerator
     {
         // Fields
-        private string[] names = { "Noob", "Pro", "Hacker" };
+        private string[] names =
+        {
+            "Lynx",
+            "Hermit",
+            "Butcher",
+            "Wasp",
+            "Widow",
+            "Shogun",
+            "Titan",
+            "Volcano",
+            "Megalith",
+            "Fungus",
+            "Vortex",
+            "Fatum",
+            "Arkhos",
+            "Hoaxen",
+            "Karcer",
+            "Drakaina",
+            "Tenebris",
+            "Gatekeeper",
+            "The Blackness",
+            "Stalker",
+        };
 
         // Init
         public EnemyGenerator()

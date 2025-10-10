@@ -32,11 +32,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fight));
             this.playerPictureBox = new System.Windows.Forms.PictureBox();
             this.enemyPictureBox = new System.Windows.Forms.PictureBox();
-            this.playerProgressBar = new System.Windows.Forms.ProgressBar();
-            this.enemyProgressBar = new System.Windows.Forms.ProgressBar();
+            this.playerHealthPoinntsProgressBar = new System.Windows.Forms.ProgressBar();
+            this.enemyHealthPoinntsProgressBar = new System.Windows.Forms.ProgressBar();
             this.playerNameLabel = new System.Windows.Forms.Label();
             this.enemyNameLabel = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.playerManaProgressBar = new System.Windows.Forms.ProgressBar();
+            this.playerHealthPointsLabel = new System.Windows.Forms.Label();
+            this.enemyHealthPointsLabel = new System.Windows.Forms.Label();
+            this.playerManaLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemyPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -63,19 +67,19 @@
             this.enemyPictureBox.TabIndex = 1;
             this.enemyPictureBox.TabStop = false;
             // 
-            // playerProgressBar
+            // playerHealthPoinntsProgressBar
             // 
-            this.playerProgressBar.Location = new System.Drawing.Point(41, 349);
-            this.playerProgressBar.Name = "playerProgressBar";
-            this.playerProgressBar.Size = new System.Drawing.Size(251, 23);
-            this.playerProgressBar.TabIndex = 2;
+            this.playerHealthPoinntsProgressBar.Location = new System.Drawing.Point(48, 340);
+            this.playerHealthPoinntsProgressBar.Name = "playerHealthPoinntsProgressBar";
+            this.playerHealthPoinntsProgressBar.Size = new System.Drawing.Size(251, 23);
+            this.playerHealthPoinntsProgressBar.TabIndex = 2;
             // 
-            // enemyProgressBar
+            // enemyHealthPoinntsProgressBar
             // 
-            this.enemyProgressBar.Location = new System.Drawing.Point(449, 349);
-            this.enemyProgressBar.Name = "enemyProgressBar";
-            this.enemyProgressBar.Size = new System.Drawing.Size(251, 23);
-            this.enemyProgressBar.TabIndex = 3;
+            this.enemyHealthPoinntsProgressBar.Location = new System.Drawing.Point(444, 340);
+            this.enemyHealthPoinntsProgressBar.Name = "enemyHealthPoinntsProgressBar";
+            this.enemyHealthPoinntsProgressBar.Size = new System.Drawing.Size(251, 23);
+            this.enemyHealthPoinntsProgressBar.TabIndex = 3;
             // 
             // playerNameLabel
             // 
@@ -106,6 +110,41 @@
             this.timer.Enabled = true;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // playerManaProgressBar
+            // 
+            this.playerManaProgressBar.Location = new System.Drawing.Point(79, 363);
+            this.playerManaProgressBar.Name = "playerManaProgressBar";
+            this.playerManaProgressBar.Size = new System.Drawing.Size(189, 13);
+            this.playerManaProgressBar.TabIndex = 6;
+            // 
+            // playerHealthPointsLabel
+            // 
+            this.playerHealthPointsLabel.AutoSize = true;
+            this.playerHealthPointsLabel.Location = new System.Drawing.Point(162, 345);
+            this.playerHealthPointsLabel.Name = "playerHealthPointsLabel";
+            this.playerHealthPointsLabel.Size = new System.Drawing.Size(24, 13);
+            this.playerHealthPointsLabel.TabIndex = 7;
+            this.playerHealthPointsLabel.Text = "0/0";
+            // 
+            // enemyHealthPointsLabel
+            // 
+            this.enemyHealthPointsLabel.AutoSize = true;
+            this.enemyHealthPointsLabel.Location = new System.Drawing.Point(558, 345);
+            this.enemyHealthPointsLabel.Name = "enemyHealthPointsLabel";
+            this.enemyHealthPointsLabel.Size = new System.Drawing.Size(24, 13);
+            this.enemyHealthPointsLabel.TabIndex = 8;
+            this.enemyHealthPointsLabel.Text = "0/0";
+            // 
+            // playerManaLabel
+            // 
+            this.playerManaLabel.AutoSize = true;
+            this.playerManaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.playerManaLabel.Location = new System.Drawing.Point(166, 365);
+            this.playerManaLabel.Name = "playerManaLabel";
+            this.playerManaLabel.Size = new System.Drawing.Size(15, 9);
+            this.playerManaLabel.TabIndex = 9;
+            this.playerManaLabel.Text = "0/0";
+            // 
             // Fight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -113,10 +152,14 @@
             this.BackgroundImage = global::ByNumb.Properties.Resources.FightingScreen;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(724, 384);
+            this.Controls.Add(this.playerManaLabel);
+            this.Controls.Add(this.enemyHealthPointsLabel);
+            this.Controls.Add(this.playerHealthPointsLabel);
+            this.Controls.Add(this.playerManaProgressBar);
             this.Controls.Add(this.enemyNameLabel);
             this.Controls.Add(this.playerNameLabel);
-            this.Controls.Add(this.enemyProgressBar);
-            this.Controls.Add(this.playerProgressBar);
+            this.Controls.Add(this.enemyHealthPoinntsProgressBar);
+            this.Controls.Add(this.playerHealthPoinntsProgressBar);
             this.Controls.Add(this.enemyPictureBox);
             this.Controls.Add(this.playerPictureBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -139,10 +182,14 @@
 
         private System.Windows.Forms.PictureBox playerPictureBox;
         private System.Windows.Forms.PictureBox enemyPictureBox;
-        private System.Windows.Forms.ProgressBar playerProgressBar;
-        private System.Windows.Forms.ProgressBar enemyProgressBar;
+        private System.Windows.Forms.ProgressBar playerHealthPoinntsProgressBar;
+        private System.Windows.Forms.ProgressBar enemyHealthPoinntsProgressBar;
         private System.Windows.Forms.Label playerNameLabel;
         private System.Windows.Forms.Label enemyNameLabel;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.ProgressBar playerManaProgressBar;
+        private System.Windows.Forms.Label playerHealthPointsLabel;
+        private System.Windows.Forms.Label enemyHealthPointsLabel;
+        private System.Windows.Forms.Label playerManaLabel;
     }
 }

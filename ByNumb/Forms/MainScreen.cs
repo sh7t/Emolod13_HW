@@ -23,13 +23,45 @@ namespace ByNumb.Forms
 
         private void MainScreen_Load(object sender, EventArgs e)
         {
-           
             playerCharacteristics.Text = player.ShowCharacteristics();
+            if (BackgroundImage == Properties.Resources.LosingScreen)
+            {
+                turnButton.Hide();
+            }
         }
 
         private void turnButton_Click(object sender, EventArgs e)
         {
             GameEngine.ChooseEventType(this, player);
+        }
+
+        public void WhenWin()
+        {
+            player.setStrength(player.getLevel());
+            player.setAgility(player.getLevel());
+            player.setEndurance(player.getLevel());
+            player.setIntelligence(player.getLevel());
+            player.setMaxHealthPoints(player.getEndurance() * 50);
+            player.setMaxMana(player.getIntelligence() * 50);
+            player.setCriticalChance(player.getAgility() * 0.5);
+
+            playerCharacteristics.Text = player.ShowCharacteristics();
+        }
+        public void WhenLose()
+        {
+            BackgroundImage = global::ByNumb.Properties.Resources.LosingScreen;
+            playerImage.Image = global::ByNumb.Properties.Resources.DeadPlayer;
+
+            FakeButtonImage.Show();
+            turnButton.Hide();
+
+            player.setHealthPoints(0);
+            player.setMana(0);
+            player.setExperience(0);
+            player.setExperienceForLevelUp(0);
+            player.setName($"Dead {player.getName()}");
+            player.setCriticalChance(0);
+            playerCharacteristics.Text = player.ShowCharacteristics();
         }
     }
 }

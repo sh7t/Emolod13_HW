@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeScreen));
             this.playButton = new System.Windows.Forms.Button();
             this.playerNameTextBox = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // playButton
@@ -53,6 +55,17 @@
             this.playerNameTextBox.TabIndex = 2;
             this.playerNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::ByNumb.Properties.Resources.MainScreenLogo;
+            this.pictureBox1.Location = new System.Drawing.Point(12, -2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(724, 216);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // HomeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -60,6 +73,7 @@
             this.BackgroundImage = global::ByNumb.Properties.Resources.MainMenu;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(724, 384);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.playerNameTextBox);
             this.Controls.Add(this.playButton);
             this.Cursor = System.Windows.Forms.Cursors.Cross;
@@ -69,6 +83,7 @@
             this.Name = "HomeScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RPG: Reign of Pure Glory";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -77,5 +92,6 @@
         #endregion
         private System.Windows.Forms.Button playButton;
         private System.Windows.Forms.TextBox playerNameTextBox;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

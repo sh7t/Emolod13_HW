@@ -33,19 +33,20 @@ namespace ByNumb.Services
                     break;
 
                 case EventType.Fight:
-                    MessageBox.Show("You went looking for trouble... and found it.\nEnemy on Your way!", "Houston, we have a problem!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("You went looking for trouble... and found it.\nEnemy on Your way!", $"{player.getName()}, we have problems!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Controls:\nCommon Attack: E\nStrong Attack: R\nBlock: Space\nMeditation: Q", "I'm gonna die or what?!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     mainScreen.Hide();
                     new Fight(player, mainScreen).ShowDialog();
                     break;
 
                 case EventType.Shopping:
-                    MessageBox.Show("You've found a mysterious shop!\nHope You'll find some things for Yourself.", "Shopping coming", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("You've found a mysterious shop!\nHope you'll find some things for yourself.", "Shopping coming", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     mainScreen.Hide();
                     new Shop(player).ShowDialog();
                     break;
 
                 case EventType.Mystery:
-                    MessageBox.Show("You've found a mystery!", "Moving result", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("You've found a mystery!", "Shiny rattles", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     break;
 
                 default:

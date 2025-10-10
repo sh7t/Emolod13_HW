@@ -18,7 +18,7 @@ namespace ByNumb.Entities
         {
             attack = level * 5;
             defense = level * 10;
-            maxHealthPoints = healthPoints = level * 100;
+            maxHealthPoints = healthPoints = level * 30;
             goldReward = 15 + (level - 1) * 10 + CustomRandom.Next(1, 11);
             experienceReward = 20 + (level - 1) * 10 + CustomRandom.Next(1, 11);
         }
@@ -35,5 +35,14 @@ namespace ByNumb.Entities
 
         public int getExperienceReward() { return experienceReward; }
         public void setExperienceReward(int experienceReward) { this.experienceReward = experienceReward; }
+
+        // Methods
+        public void GainDamage(int damage)
+        {
+            if (damage > this.getDefense())
+            {
+                this.setHealthPoints(this.getHealthPoints() - (damage - this.getDefense()));
+            }
+        }
     }
 }

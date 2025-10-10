@@ -17,7 +17,6 @@ namespace ByNumb.Forms
         private Player player;
         private Enemy enemy;
         private MainScreen mainScreen;
-        private bool playerTurn = false;
         public Fight(Player player, MainScreen mainScreen)
         {
             InitializeComponent();
@@ -32,29 +31,45 @@ namespace ByNumb.Forms
             playerNameLabel.Text = player.getName();
             enemyNameLabel.Text = enemy.getName();
 
-            playerProgressBar.Maximum = player.getMaxHealthPoints();
-            enemyProgressBar.Maximum = enemy.getMaxHealthPoints();
+            playerHealthPoinntsProgressBar.Maximum = player.getMaxHealthPoints();
+            playerManaProgressBar.Maximum = player.getMaxMana();
+            enemyHealthPoinntsProgressBar.Maximum = enemy.getMaxHealthPoints();
 
-            playerProgressBar.Value = player.getHealthPoints();
-            enemyProgressBar.Value = enemy.getHealthPoints();
+            playerHealthPoinntsProgressBar.Value = player.getHealthPoints();
+            playerManaProgressBar.Value = player.getMana();
+            enemyHealthPoinntsProgressBar.Value = enemy.getHealthPoints();
+
+            playerHealthPointsLabel.Text = $"{player.getHealthPoints()}/{player.getMaxHealthPoints()}";
+            playerManaLabel.Text = $"{player.getMana()}/{player.getMaxMana()}";
+            enemyHealthPointsLabel.Text = $"{enemy.getHealthPoints()}/{enemy.getMaxHealthPoints()}";
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            playerProgressBar.Value = Math.Max(0, player.getHealthPoints());
-            enemyProgressBar.Value = Math.Max(0, enemy.getHealthPoints());
+            playerHealthPoinntsProgressBar.Value = Math.Max(0, player.getHealthPoints());
+            playerManaProgressBar.Value = Math.Max(0, player.getMana());
+            enemyHealthPoinntsProgressBar.Value = Math.Max(0, enemy.getHealthPoints());
+
+            playerHealthPointsLabel.Text = somethingFromSomething(player.getHealthPoints(), player.getMaxHealthPoints());
+            playerManaLabel.Text = somethingFromSomething(player.getMana(), player.getMaxMana());
+            enemyHealthPointsLabel.Text = somethingFromSomething(enemy.getHealthPoints(), enemy.getMaxHealthPoints());
+
 
             if (player.getHealthPoints() <= 0)
             {
                 timer.Stop();
-                MessageBox.Show("gg");
+                MessageBox.Show("You fell right on the battlefield, weakling. You're slowly dying!");
+                mainScreen.WhenLose();
                 mainScreen.Show();
-                Close();
+                this.Close();
             }
             else if (enemy.getHealthPoints() <= 0)
             {
                 timer.Stop();
-                MessageBox.Show("good boy");
+                MessageBox.Show("You brought this bastard to his knees, congratulation!");
+                player.setGold(player.getGold() + enemy.getGoldReward());
+                player.GainExperience(enemy.getExperienceReward());
+                mainScreen.WhenWin();
                 mainScreen.Show();
                 Close();
             }
@@ -63,23 +78,39 @@ namespace ByNumb.Forms
 
         private void Fight_KeyDown(object sender, KeyEventArgs e)
         {
+            enemy.setDefense(0);
             switch(e.KeyCode)
             {
                 case Keys.E:
-                    enemy.setHealthPoints(enemy.getHealthPoints() - player.CommonAttack());
+                    enemy.GainDamage(player.CommonAttack());
+                    player.GainDamage(enemy.getAttack());
                     break;
 
-                case Keys.R: 
-                    enemy.setHealthPoints(enemy.getHealthPoints() - player.StrongAttack());
+                case Keys.R:
+                    enemy.GainDamage(player.StrongAttack());
+                    player.GainDamage(enemy.getAttack());
                     break;
 
                 case Keys.Space:
-                    player.Block();
+                    player.GainDamage(enemy.getAttack() / 2);
                     break;
 
                 case Keys.Q:
                     player.Heal();
+                    player.GainDamage(enemy.getAttack());
                     break;
+            }
+        }
+
+        private string somethingFromSomething(int value, int maxValue)
+        {
+            if (value >= 0)
+            {
+                return $"{value}/{maxValue}";
+            }
+            else
+            {
+                return $"{0}/{maxValue}";
             }
         }
 

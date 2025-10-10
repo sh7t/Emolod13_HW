@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,7 @@ namespace ByNumb.Forms
         public HomeScreen()
         {
             InitializeComponent();
+            new SoundPlayer(Properties.Resources.MainTheme).PlayLooping();
         }
 
         private void playButton_Click(object sender, EventArgs e)

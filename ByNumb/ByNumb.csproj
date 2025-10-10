@@ -64,12 +64,6 @@
     <Compile Include="Forms\Fight.Designer.cs">
       <DependentUpon>Fight.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\LosingScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\LosingScreen.Designer.cs">
-      <DependentUpon>LosingScreen.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\MainScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,9 +98,6 @@
     <EmbeddedResource Include="Forms\Fight.resx">
       <DependentUpon>Fight.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\LosingScreen.resx">
-      <DependentUpon>LosingScreen.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainScreen.resx">
       <DependentUpon>MainScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,17 +123,19 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\Sounds\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Assets\Icons\Reign of Pure Glory.ico" />
     <None Include="Assets\Images\Screens\FightingScreen.png" />
     <None Include="Assets\Images\Entities\Enemy.png" />
+    <Content Include="Assets\Images\Details\FakeButton.png" />
+    <Content Include="Assets\Images\Details\MainScreenLogo.png" />
+    <Content Include="Assets\Images\Details\Reign of Pure Glory.png" />
     <Content Include="Assets\Images\Screens\MainMenu.jpg" />
     <None Include="Assets\Images\Entities\Player.png" />
     <None Include="Assets\Images\Screens\ShopScreen.jpg" />
     <Content Include="Assets\Images\Screens\ShopScreen.png" />
+    <Content Include="Assets\Sounds\mainTheme.wav" />
     <Content Include="Reign of Pure Glory.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

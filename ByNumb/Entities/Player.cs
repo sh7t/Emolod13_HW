@@ -1,4 +1,6 @@
 ﻿using ByNumb.Items;
+using ByNumb.Services;
+using System.Windows.Forms.VisualStyles;
 
 namespace ByNumb.Entities
 {
@@ -19,7 +21,7 @@ namespace ByNumb.Entities
         // Init
         public Player(string name) : base(name)
         {
-            maxHealthPoints = healthPoints = this.endurance * 100;
+            maxHealthPoints = healthPoints = this.endurance * 50;
             maxMana = mana = this.intelligence * 50;
             criticalChance = this.agility * 0.5;
         }
@@ -62,30 +64,85 @@ namespace ByNumb.Entities
         public void setArmor(Armor armor) { this.armor = armor; }
 
         // Methods
+        public void GainExperience(int experience)
+        {
+            this.experience += experience;
+            while (this.experience > this.experienceForLevelUp)
+            {
+                this.experience -= this.experienceForLevelUp;
+                this.experienceForLevelUp += 10;
+                this.level++;
+            }
+        }
+        public void GainDamage(int damage)
+        {
+            if (damage > CalculateDefensePotential())
+            {
+                this.setHealthPoints(this.getHealthPoints() - (damage - this.CalculateDefensePotential()));
+            }
+        }
+
         public int CommonAttack()
         {
-            return (CalculateAttackPower() / 2); // unfinished
+            if (this.getMana() >= intelligence * 5)
+            {
+                this.setMana(this.getMana() - intelligence * 5);
+                return CalculateAttackPower();
+            }
+            else
+            {
+                return 0;
+            }
         }
         public int StrongAttack()
         {
-            return ((CalculateAttackPower() + level*2) / 2); // unfinished
+            if (this.getMana() >= intelligence * 15)
+            {
+                this.setMana(this.getMana() - intelligence * 15);
+                return CalculateAttackPower() + level * 2;
+            }
+            else
+            {
+                return 0;
+            }
+            
         }
-        public int Block()
+        public void Heal()
         {
-            return 0; // unfinished
-        }
-        public int Heal()
-        {
-            return ((maxHealthPoints / 10)*2); // unfinished
+            if (this.getHealthPoints() < this.getMaxHealthPoints() - (this.getMaxHealthPoints() / 10))
+            {
+                this.setHealthPoints(this.getHealthPoints() + (this.getMaxHealthPoints() / 10));
+            }
+            if (this.getMana() < this.getMaxMana() - (this.getMaxMana() / 20))
+            {
+                this.setMana(this.getMaxMana() - (this.getMaxMana() / 20));
+            }
         }
 
         public int CalculateAttackPower()
         {
-            if (weapon != null)
+            if (CustomRandom.Next(1, 1001) <= ((int)(criticalChance * 10)))
             {
-                return (strength + weapon.getAttackBonus());
+                if (weapon != null)
+                {
+                    return (int)(1.5 * (strength + weapon.getAttackBonus()));
+                }
+                else
+                {
+                    return (int)1.5 * strength;
+                }
             }
-            return strength;
+            else
+            {
+                if (weapon != null)
+                {
+                    return strength + weapon.getAttackBonus();
+                }
+                else
+                {
+                    return strength;
+                }
+            }
         }
 
         public int CalculateDefensePotential()
