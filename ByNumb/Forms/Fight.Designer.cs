@@ -83,24 +83,22 @@
             // 
             // playerNameLabel
             // 
-            this.playerNameLabel.AutoSize = true;
             this.playerNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.playerNameLabel.Font = new System.Drawing.Font("Impact", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.playerNameLabel.Location = new System.Drawing.Point(126, 11);
+            this.playerNameLabel.Location = new System.Drawing.Point(12, 11);
             this.playerNameLabel.Name = "playerNameLabel";
-            this.playerNameLabel.Size = new System.Drawing.Size(91, 36);
+            this.playerNameLabel.Size = new System.Drawing.Size(318, 36);
             this.playerNameLabel.TabIndex = 4;
             this.playerNameLabel.Text = "player";
             this.playerNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // enemyNameLabel
             // 
-            this.enemyNameLabel.AutoSize = true;
             this.enemyNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.enemyNameLabel.Font = new System.Drawing.Font("Impact", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.enemyNameLabel.Location = new System.Drawing.Point(508, 26);
+            this.enemyNameLabel.Location = new System.Drawing.Point(417, 26);
             this.enemyNameLabel.Name = "enemyNameLabel";
-            this.enemyNameLabel.Size = new System.Drawing.Size(95, 36);
+            this.enemyNameLabel.Size = new System.Drawing.Size(295, 36);
             this.enemyNameLabel.TabIndex = 5;
             this.enemyNameLabel.Text = "enemy";
             this.enemyNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
