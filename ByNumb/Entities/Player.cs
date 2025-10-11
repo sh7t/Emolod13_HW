@@ -1,4 +1,5 @@
-﻿using ByNumb.Items;
+﻿using ByNumb.Forms;
+using ByNumb.Items;
 using ByNumb.Services;
 using System.Windows.Forms.VisualStyles;
 
@@ -74,12 +75,37 @@ namespace ByNumb.Entities
                 this.level++;
             }
         }
-        public void GainDamage(int damage)
+        public void LoseExperience(int experience)
+        {
+            if (this.experience - experience > 0) { this.experience -= experience; }
+            else { this.experience = 0; }
+        }
+        public void GainGold(int gold)
+        {
+            this.gold += gold;
+        }
+        public void LoseGold(int gold)
+        {
+            if (this.gold - gold > 0) { this.gold -= gold; }
+            else{ this.gold = 0; }
+        }
+        public void GainHP(int hp)
+        {
+            if (healthPoints < maxHealthPoints - hp) { healthPoints += hp;}
+            else { healthPoints = maxHealthPoints; }
+        }
+        public void GainMana(int mana)
+        {
+            if (this.mana < maxMana - mana) { this.mana += mana; }
+            else { this.mana = maxMana; }
+        }
+        public void GainDamage(int damage, MainScreen mainScreen)
         {
             if (damage > CalculateDefensePotential())
             {
                 this.setHealthPoints(this.getHealthPoints() - (damage - this.CalculateDefensePotential()));
             }
+            if (this.healthPoints <= 0) { mainScreen.WhenLose(); }
         }
 
         public int CommonAttack()
@@ -109,9 +135,9 @@ namespace ByNumb.Entities
         }
         public void Heal()
         {
-            if (this.getHealthPoints() < this.getMaxHealthPoints() - (this.getMaxHealthPoints() / 10))
+            if (this.getHealthPoints() < this.getMaxHealthPoints() - (this.getMaxHealthPoints() / 5))
             {
-                this.setHealthPoints(this.getHealthPoints() + (this.getMaxHealthPoints() / 10));
+                this.setHealthPoints(this.getHealthPoints() + (this.getMaxHealthPoints() / 5));
             }
             if (this.getMana() < this.getMaxMana() - (this.getMaxMana() / 20))
             {

@@ -58,7 +58,7 @@ namespace ByNumb.Forms
             if (player.getHealthPoints() <= 0)
             {
                 timer.Stop();
-                MessageBox.Show("You fell right on the battlefield, weakling. You're slowly dying!");
+                MessageBox.Show("You fell right on the battlefield, weakling. You're slowly dying!", "You're paltry, pal!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 mainScreen.WhenLose();
                 mainScreen.Show();
                 this.Close();
@@ -66,7 +66,7 @@ namespace ByNumb.Forms
             else if (enemy.getHealthPoints() <= 0)
             {
                 timer.Stop();
-                MessageBox.Show("You brought this bastard to his knees, congratulation!");
+                MessageBox.Show("You brought this bastard to his knees, congratulation!", $"Great job, {player.getName()}.");
                 player.setGold(player.getGold() + enemy.getGoldReward());
                 player.GainExperience(enemy.getExperienceReward());
                 mainScreen.WhenWin();
@@ -83,21 +83,21 @@ namespace ByNumb.Forms
             {
                 case Keys.E:
                     enemy.GainDamage(player.CommonAttack());
-                    player.GainDamage(enemy.getAttack());
+                    player.GainDamage(enemy.getAttack(), mainScreen);
                     break;
 
                 case Keys.R:
                     enemy.GainDamage(player.StrongAttack());
-                    player.GainDamage(enemy.getAttack());
+                    player.GainDamage(enemy.getAttack(), mainScreen);
                     break;
 
                 case Keys.Space:
-                    player.GainDamage(enemy.getAttack() / 2);
+                    player.GainDamage(enemy.getAttack() / 2, mainScreen);
                     break;
 
                 case Keys.Q:
                     player.Heal();
-                    player.GainDamage(enemy.getAttack());
+                    player.GainDamage(enemy.getAttack(), mainScreen);
                     break;
             }
         }

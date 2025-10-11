@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ByNumb.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +17,8 @@ namespace ByNumb.Forms
         public HomeScreen()
         {
             InitializeComponent();
-            new SoundPlayer(Properties.Resources.MainTheme).PlayLooping();
+            GameEngine.PlayMainTheme();
+            musicInteractionButton.Image.Tag = "Play";
         }
 
         private void playButton_Click(object sender, EventArgs e)
@@ -44,6 +46,26 @@ namespace ByNumb.Forms
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             playerNameTextBox.Clear();
+        }
+
+        private void musicInteractionButton_Click(object sender, EventArgs e)
+        {
+            switch (musicInteractionButton.Image.Tag.ToString())
+            {
+                case "Play":
+                    musicInteractionButton.Image = global::ByNumb.Properties.Resources.MuteButton;
+                    musicInteractionButton.Image.Tag = "Mute";
+                    GameEngine.MuteMainTheme();
+                    break;
+                case "Mute":
+                    musicInteractionButton.Image = global::ByNumb.Properties.Resources.PlayButton;
+                    musicInteractionButton.Image.Tag = "Play";
+                    GameEngine.PlayMainTheme();
+                    break;
+                default:
+                    musicInteractionButton.Image.Tag = "Play";
+                    break;
+            }
         }
     }
 }

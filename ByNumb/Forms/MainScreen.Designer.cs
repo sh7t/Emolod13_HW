@@ -88,8 +88,8 @@
             this.ClientSize = new System.Drawing.Size(724, 384);
             this.Controls.Add(this.playerImage);
             this.Controls.Add(this.playerCharacteristics);
-            this.Controls.Add(this.FakeButtonImage);
             this.Controls.Add(this.turnButton);
+            this.Controls.Add(this.FakeButtonImage);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(740, 423);
             this.MinimumSize = new System.Drawing.Size(740, 423);

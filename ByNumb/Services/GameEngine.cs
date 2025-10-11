@@ -1,6 +1,7 @@
 ﻿using ByNumb.Entities;
 using ByNumb.Forms;
 using System;
+using System.Media;
 using System.Windows.Forms;
 
 namespace ByNumb.Services
@@ -16,10 +17,11 @@ namespace ByNumb.Services
         }
 
         // Fields
-
+        private static SoundPlayer soundPlayer = new SoundPlayer(Properties.Resources.MainTheme);
         // Init
 
         // Get-set'ters
+        public SoundPlayer getSoundPlayer() { return soundPlayer; }
 
         // Methods
         public static void ChooseEventType(MainScreen mainScreen, Player player)
@@ -35,8 +37,8 @@ namespace ByNumb.Services
                 case EventType.Fight:
                     MessageBox.Show("You went looking for trouble... and found it.\nEnemy on Your way!", $"{player.getName()}, we have problems!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     MessageBox.Show("Controls:\nCommon Attack: E\nStrong Attack: R\nBlock: Space\nMeditation: Q", "I'm gonna die or what?!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    mainScreen.Hide();
-                    new Fight(player, mainScreen).ShowDialog();
+                    // mainScreen.Hide();
+                    // new Fight(player, mainScreen).ShowDialog();
                     break;
 
                 case EventType.Shopping:
@@ -46,12 +48,24 @@ namespace ByNumb.Services
                     break;
 
                 case EventType.Mystery:
-                    MessageBox.Show("You've found a mystery!", "Shiny rattles", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    player = Mystery.MysteryRandom(player, mainScreen);
+                    mainScreen.UpdateCharacteristics(player);
                     break;
 
                 default:
                     throw new Exception("Critical error. EventGeneration proccess didn't succeed.");
             }
+
         }
+
+        public static void PlayMainTheme()
+        {
+            soundPlayer.PlayLooping();
+        }
+        public static void MuteMainTheme()
+        {
+            soundPlayer.Stop();
+        }
+
     }
 }

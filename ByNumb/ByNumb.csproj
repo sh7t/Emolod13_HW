@@ -90,7 +90,7 @@
     <Compile Include="Services\CustomRandom.cs" />
     <Compile Include="Services\EnemyGenerator.cs" />
     <Compile Include="Services\GameEngine.cs" />
-    <Compile Include="Services\MysteryGenerator.cs" />
+    <Compile Include="Services\Mystery.cs" />
     <Compile Include="Services\WeaponGenerator.cs" />
     <EmbeddedResource Include="Forms\HomeScreen.resx">
       <DependentUpon>HomeScreen.cs</DependentUpon>
@@ -123,14 +123,23 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Assets\Images\Items\Weapons\" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Assets\Icons\Reign of Pure Glory.ico" />
     <None Include="Assets\Images\Screens\FightingScreen.png" />
     <None Include="Assets\Images\Entities\Enemy.png" />
     <Content Include="Assets\Images\Details\FakeButton.png" />
     <Content Include="Assets\Images\Details\MainScreenLogo.png" />
+    <Content Include="Assets\Images\Details\MuteButton.png" />
+    <Content Include="Assets\Images\Details\PlayButton.png" />
     <Content Include="Assets\Images\Details\Reign of Pure Glory.png" />
+    <Content Include="Assets\Images\Items\Armors\FifthArmor.png" />
+    <Content Include="Assets\Images\Items\Armors\FirstArmor.png" />
+    <Content Include="Assets\Images\Items\Armors\FourthArmor.png" />
+    <Content Include="Assets\Images\Items\Armors\SecondArmor.png" />
+    <Content Include="Assets\Images\Items\Armors\ThirdArmor.png" />
     <Content Include="Assets\Images\Screens\MainMenu.jpg" />
     <None Include="Assets\Images\Entities\Player.png" />
     <None Include="Assets\Images\Screens\ShopScreen.jpg" />

@@ -23,7 +23,7 @@ namespace ByNumb.Forms
 
         private void MainScreen_Load(object sender, EventArgs e)
         {
-            playerCharacteristics.Text = player.ShowCharacteristics();
+            UpdateCharacteristics(player);
             if (BackgroundImage == Properties.Resources.LosingScreen)
             {
                 turnButton.Hide();
@@ -45,7 +45,7 @@ namespace ByNumb.Forms
             player.setMaxMana(player.getIntelligence() * 50);
             player.setCriticalChance(player.getAgility() * 0.5);
 
-            playerCharacteristics.Text = player.ShowCharacteristics();
+            UpdateCharacteristics(player);
         }
         public void WhenLose()
         {
@@ -61,7 +61,14 @@ namespace ByNumb.Forms
             player.setExperienceForLevelUp(0);
             player.setName($"Dead {player.getName()}");
             player.setCriticalChance(0);
+
+            UpdateCharacteristics(player);
+        }
+        public void UpdateCharacteristics(Player player)
+        {
             playerCharacteristics.Text = player.ShowCharacteristics();
         }
+
+ 
     }
 }
