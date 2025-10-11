@@ -7,7 +7,7 @@
     <ProjectGuid>{B03F9F7A-E96E-410B-9FE2-828D735F974E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>ByNumb</RootNamespace>
-    <AssemblyName>ByNumb</AssemblyName>
+    <AssemblyName>Reign of Pure Glory</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
