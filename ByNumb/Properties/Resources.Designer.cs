@@ -93,9 +93,69 @@ namespace ByNumb.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FifthArmor {
+            get {
+                object obj = ResourceManager.GetObject("FifthArmor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FifthSword {
+            get {
+                object obj = ResourceManager.GetObject("FifthSword", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FightingScreen {
             get {
                 object obj = ResourceManager.GetObject("FightingScreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FirstArmor {
+            get {
+                object obj = ResourceManager.GetObject("FirstArmor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FirstSword {
+            get {
+                object obj = ResourceManager.GetObject("FirstSword", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FourthArmor {
+            get {
+                object obj = ResourceManager.GetObject("FourthArmor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FourthSword {
+            get {
+                object obj = ResourceManager.GetObject("FourthSword", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -152,6 +212,26 @@ namespace ByNumb.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap OutOfStockArmor {
+            get {
+                object obj = ResourceManager.GetObject("OutOfStockArmor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OutOfStockSword {
+            get {
+                object obj = ResourceManager.GetObject("OutOfStockSword", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PlayButton {
             get {
                 object obj = ResourceManager.GetObject("PlayButton", resourceCulture);
@@ -182,9 +262,29 @@ namespace ByNumb.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Reign_of_Pure_Glory1 {
+        internal static System.Drawing.Bitmap Reign_of_Pure_Glory_icon {
             get {
-                object obj = ResourceManager.GetObject("Reign of Pure Glory1", resourceCulture);
+                object obj = ResourceManager.GetObject("Reign of Pure Glory icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SecondArmor {
+            get {
+                object obj = ResourceManager.GetObject("SecondArmor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SecondSword {
+            get {
+                object obj = ResourceManager.GetObject("SecondSword", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -195,6 +295,26 @@ namespace ByNumb.Properties {
         internal static System.Drawing.Bitmap ShopScreen {
             get {
                 object obj = ResourceManager.GetObject("ShopScreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThirdArmor {
+            get {
+                object obj = ResourceManager.GetObject("ThirdArmor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThirdSword {
+            get {
+                object obj = ResourceManager.GetObject("ThirdSword", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

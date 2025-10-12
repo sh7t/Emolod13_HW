@@ -1,6 +1,7 @@
 ﻿using ByNumb.Forms;
 using ByNumb.Items;
 using ByNumb.Services;
+using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 
 namespace ByNumb.Entities
@@ -14,7 +15,7 @@ namespace ByNumb.Entities
         private int agility = 1;
         private int intelligence = 1;
         private int mana = 0, maxMana = 0;
-        private int gold = 0;
+        private int gold = 10000;
         private double criticalChance = 0;
         private Weapon weapon = null;
         private Armor armor = null;
@@ -79,6 +80,20 @@ namespace ByNumb.Entities
         {
             if (this.experience - experience > 0) { this.experience -= experience; }
             else { this.experience = 0; }
+        }
+        public bool BuyItem(int price, string itemName)
+        {
+            if (this.gold >= price)
+            {
+                this.gold -= price;
+                MessageBox.Show($"Congratulations, you successfully bought a new item {itemName}!", "Brand-new!", MessageBoxButtons.OK);
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("You don't have enough gold to buy it! Try again later.", "Not enough money!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
         public void GainGold(int gold)
         {
@@ -189,15 +204,15 @@ namespace ByNumb.Entities
                                       $"\nGold: {getGold()}\nCriticalChance: {getCriticalChance()}%");
             if (weapon != null && armor != null)
             {
-                return (characteristics + "\nWeapon: {weapon.getName()}\nArmor: {armor.getName()}");
+                return (characteristics + $"\nWeapon: {weapon.getName()}(+{weapon.getAttackBonus()} Att)\nArmor: {armor.getName()}(+{armor.getDefenseBonus()} Def)");
             }
             else if (armor == null && weapon != null)
             {
-                return (characteristics + "\nWeapon: {weapon.getName()}");
+                return (characteristics + $"\nWeapon: {weapon.getName()}(+{weapon.getAttackBonus()} Att)");
             }
             else if (armor != null && weapon == null)
             {
-                return (characteristics + "\nArmor: {armor.getName()}");
+                return (characteristics + $"\nArmor: {armor.getName()}(+{armor.getDefenseBonus()} Def)");
             }
             else
             {

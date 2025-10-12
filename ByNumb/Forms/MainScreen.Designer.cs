@@ -29,23 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
-            this.playerCharacteristics = new System.Windows.Forms.Label();
             this.turnButton = new System.Windows.Forms.Button();
             this.playerImage = new System.Windows.Forms.PictureBox();
             this.FakeButtonImage = new System.Windows.Forms.PictureBox();
+            this.playerCharacteristics = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.playerImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FakeButtonImage)).BeginInit();
             this.SuspendLayout();
-            // 
-            // playerCharacteristics
-            // 
-            this.playerCharacteristics.AutoSize = true;
-            this.playerCharacteristics.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.playerCharacteristics.Location = new System.Drawing.Point(12, 9);
-            this.playerCharacteristics.Name = "playerCharacteristics";
-            this.playerCharacteristics.Size = new System.Drawing.Size(75, 14);
-            this.playerCharacteristics.TabIndex = 2;
-            this.playerCharacteristics.Text = "Characteristics";
             // 
             // turnButton
             // 
@@ -79,6 +69,17 @@
             this.FakeButtonImage.TabStop = false;
             this.FakeButtonImage.Visible = false;
             // 
+            // playerCharacteristics
+            // 
+            this.playerCharacteristics.AutoSize = true;
+            this.playerCharacteristics.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.playerCharacteristics.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.playerCharacteristics.Location = new System.Drawing.Point(12, 9);
+            this.playerCharacteristics.Name = "playerCharacteristics";
+            this.playerCharacteristics.Size = new System.Drawing.Size(152, 14);
+            this.playerCharacteristics.TabIndex = 2;
+            this.playerCharacteristics.Text = "playerCharacteristics________";
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -105,9 +106,9 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label playerCharacteristics;
         private System.Windows.Forms.Button turnButton;
         private System.Windows.Forms.PictureBox playerImage;
         private System.Windows.Forms.PictureBox FakeButtonImage;
+        private System.Windows.Forms.Label playerCharacteristics;
     }
 }

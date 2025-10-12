@@ -44,8 +44,6 @@ namespace ByNumb.Forms
             player.setMaxHealthPoints(player.getEndurance() * 50);
             player.setMaxMana(player.getIntelligence() * 50);
             player.setCriticalChance(player.getAgility() * 0.5);
-
-            UpdateCharacteristics(player);
         }
         public void WhenLose()
         {
@@ -61,8 +59,6 @@ namespace ByNumb.Forms
             player.setExperienceForLevelUp(0);
             player.setName($"Dead {player.getName()}");
             player.setCriticalChance(0);
-
-            UpdateCharacteristics(player);
         }
         public void UpdateCharacteristics(Player player)
         {

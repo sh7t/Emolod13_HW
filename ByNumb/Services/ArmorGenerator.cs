@@ -5,7 +5,7 @@ namespace ByNumb.Services
     public class ArmorGenerator
     {
         // Fields
-        string[] armorNames = { "Stoneguard", "Shadowplate", "Dawnshield", "Frostmail", "Ironveil", "Emberplate",
+        private static string[] armorNames = { "Stoneguard", "Shadowplate", "Dawnshield", "Frostmail", "Ironveil", "Emberplate",
             "Voidcarapace", "Moonward", "Sunforged Aegis", "Starplate", "Bloodward", "Stormcarapace", "Nightguard", "Boneplate", "Shiva's Guard",
             "Thornmail", "Blackened Bulwark", "Blademail" };
 
@@ -16,7 +16,7 @@ namespace ByNumb.Services
         }
 
         // Methods
-        public Armor GenerateArmor(int playerLevel)
+        private static Armor GenerateArmor(int playerLevel)
         {
             int minDef = 5 + (playerLevel - 1) * 2;
             int maxDef = 15 + (playerLevel - 1) * 3;
@@ -30,7 +30,7 @@ namespace ByNumb.Services
             return armor;
         }
 
-        public Armor[] GenerateArmorArray(byte arrayLength, int playerLevel)
+        public static Armor[] GenerateArmorArray(byte arrayLength, int playerLevel)
         {
             Armor[] armorArray = new Armor[arrayLength];
             for (int i = 0; i < armorArray.Length; i++)

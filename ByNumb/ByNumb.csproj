@@ -123,9 +123,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\Images\Items\Weapons\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Assets\Icons\Reign of Pure Glory.ico" />
     <None Include="Assets\Images\Screens\FightingScreen.png" />
@@ -138,8 +136,15 @@
     <Content Include="Assets\Images\Items\Armors\FifthArmor.png" />
     <Content Include="Assets\Images\Items\Armors\FirstArmor.png" />
     <Content Include="Assets\Images\Items\Armors\FourthArmor.png" />
+    <Content Include="Assets\Images\Items\Armors\OutOfStockArmor.png" />
     <Content Include="Assets\Images\Items\Armors\SecondArmor.png" />
     <Content Include="Assets\Images\Items\Armors\ThirdArmor.png" />
+    <Content Include="Assets\Images\Items\Weapons\fifthSword.png" />
+    <Content Include="Assets\Images\Items\Weapons\firstSword.png" />
+    <Content Include="Assets\Images\Items\Weapons\fourthSword.png" />
+    <Content Include="Assets\Images\Items\Weapons\OutOfStockWeapon.png" />
+    <Content Include="Assets\Images\Items\Weapons\secondSword.png" />
+    <Content Include="Assets\Images\Items\Weapons\thirdSword.png" />
     <Content Include="Assets\Images\Screens\MainMenu.jpg" />
     <None Include="Assets\Images\Entities\Player.png" />
     <None Include="Assets\Images\Screens\ShopScreen.jpg" />

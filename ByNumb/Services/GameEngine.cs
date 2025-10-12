@@ -32,6 +32,8 @@ namespace ByNumb.Services
             {
                 case EventType.Idle:
                     MessageBox.Show("Nothing happened... Probably.", "Moving result", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    player.GainExperience(1 * player.getLevel());
+                    mainScreen.UpdateCharacteristics(player);
                     break;
 
                 case EventType.Fight:
@@ -39,16 +41,18 @@ namespace ByNumb.Services
                     MessageBox.Show("Controls:\nCommon Attack: E\nStrong Attack: R\nBlock: Space\nMeditation: Q", "I'm gonna die or what?!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     // mainScreen.Hide();
                     // new Fight(player, mainScreen).ShowDialog();
+                    mainScreen.UpdateCharacteristics(player);
                     break;
 
                 case EventType.Shopping:
                     MessageBox.Show("You've found a mysterious shop!\nHope you'll find some things for yourself.", "Shopping coming", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     mainScreen.Hide();
-                    new Shop(player).ShowDialog();
+                    new Shop(player, mainScreen).ShowDialog();
+                    mainScreen.UpdateCharacteristics(player);
                     break;
 
                 case EventType.Mystery:
-                    player = Mystery.MysteryRandom(player, mainScreen);
+                    // player = Mystery.MysteryRandom(player, mainScreen);
                     mainScreen.UpdateCharacteristics(player);
                     break;
 
