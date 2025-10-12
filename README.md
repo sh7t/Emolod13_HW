@@ -120,21 +120,21 @@ Agility: int
 
 Intelligence: int
 
-Health: int (розраховується з Endurance)
+Health: int
 
-MaxHealth: int (розраховується з Endurance)
+MaxHealth: int
 
-Mana: int (розраховується з Intelligence)
+Mana: int
 
-MaxMana: int (розраховується з Intelligence)
+MaxMana: int 
 
 Gold: int
 
-Weapon: Weapon?
+Weapon: Weapon
 
-Armor: Armor?
+Armor: Armor
 
-CriticalChance: double (наприклад: Agility * 0.5%)
+CriticalChance: double
 
 #### Методи:
 
@@ -179,9 +179,7 @@ RewardGold: int
 
 RewardXP: int
 
-SpecialAbility (напр. “Heal”, “PowerStrike”)
-
-Генерується відносно рівня гравця: playerLevel ± 1.
+Генерується відносно рівня гравця.
 
 ### 4. Події (Random Events)
 10 подій:
