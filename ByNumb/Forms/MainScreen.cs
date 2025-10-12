@@ -65,6 +65,14 @@ namespace ByNumb.Forms
             playerCharacteristics.Text = player.ShowCharacteristics();
         }
 
- 
+        private void loadButton_Click(object sender, EventArgs e)
+        {
+            //
+            //
+            // after file's lesson 
+            //
+            //
+            MessageBox.Show("Your in-game achievements have been successfully saved!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

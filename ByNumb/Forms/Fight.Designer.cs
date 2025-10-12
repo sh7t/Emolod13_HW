@@ -41,6 +41,7 @@
             this.playerHealthPointsLabel = new System.Windows.Forms.Label();
             this.enemyHealthPointsLabel = new System.Windows.Forms.Label();
             this.playerManaLabel = new System.Windows.Forms.Label();
+            this.logBox = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemyPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +50,7 @@
             // 
             this.playerPictureBox.BackColor = System.Drawing.Color.Transparent;
             this.playerPictureBox.Image = global::ByNumb.Properties.Resources.Player;
-            this.playerPictureBox.Location = new System.Drawing.Point(12, 11);
+            this.playerPictureBox.Location = new System.Drawing.Point(-2, 11);
             this.playerPictureBox.Name = "playerPictureBox";
             this.playerPictureBox.Size = new System.Drawing.Size(318, 361);
             this.playerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -85,7 +86,7 @@
             // 
             this.playerNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.playerNameLabel.Font = new System.Drawing.Font("Impact", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.playerNameLabel.Location = new System.Drawing.Point(12, 11);
+            this.playerNameLabel.Location = new System.Drawing.Point(-8, 11);
             this.playerNameLabel.Name = "playerNameLabel";
             this.playerNameLabel.Size = new System.Drawing.Size(318, 36);
             this.playerNameLabel.TabIndex = 4;
@@ -143,6 +144,15 @@
             this.playerManaLabel.TabIndex = 9;
             this.playerManaLabel.Text = "0/0";
             // 
+            // logBox
+            // 
+            this.logBox.Location = new System.Drawing.Point(290, 2);
+            this.logBox.Name = "logBox";
+            this.logBox.ReadOnly = true;
+            this.logBox.Size = new System.Drawing.Size(160, 211);
+            this.logBox.TabIndex = 10;
+            this.logBox.Text = "";
+            // 
             // Fight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -150,6 +160,7 @@
             this.BackgroundImage = global::ByNumb.Properties.Resources.FightingScreen;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(724, 384);
+            this.Controls.Add(this.logBox);
             this.Controls.Add(this.playerManaLabel);
             this.Controls.Add(this.enemyHealthPointsLabel);
             this.Controls.Add(this.playerHealthPointsLabel);
@@ -189,5 +200,6 @@
         private System.Windows.Forms.Label playerHealthPointsLabel;
         private System.Windows.Forms.Label enemyHealthPointsLabel;
         private System.Windows.Forms.Label playerManaLabel;
+        private System.Windows.Forms.RichTextBox logBox;
     }
 }

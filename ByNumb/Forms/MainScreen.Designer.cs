@@ -33,6 +33,7 @@
             this.playerImage = new System.Windows.Forms.PictureBox();
             this.FakeButtonImage = new System.Windows.Forms.PictureBox();
             this.playerCharacteristics = new System.Windows.Forms.Label();
+            this.saveButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.playerImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FakeButtonImage)).BeginInit();
             this.SuspendLayout();
@@ -80,6 +81,16 @@
             this.playerCharacteristics.TabIndex = 2;
             this.playerCharacteristics.Text = "playerCharacteristics________";
             // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(602, 12);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(110, 37);
+            this.saveButton.TabIndex = 6;
+            this.saveButton.Text = "Save Game";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.loadButton_Click);
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -87,6 +98,7 @@
             this.BackgroundImage = global::ByNumb.Properties.Resources.MainMenu;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(724, 384);
+            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.playerImage);
             this.Controls.Add(this.playerCharacteristics);
             this.Controls.Add(this.turnButton);
@@ -110,5 +122,6 @@
         private System.Windows.Forms.PictureBox playerImage;
         private System.Windows.Forms.PictureBox FakeButtonImage;
         private System.Windows.Forms.Label playerCharacteristics;
+        private System.Windows.Forms.Button saveButton;
     }
 }

@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -39,9 +40,9 @@ namespace ByNumb.Forms
             playerManaProgressBar.Value = player.getMana();
             enemyHealthPoinntsProgressBar.Value = enemy.getHealthPoints();
 
-            playerHealthPointsLabel.Text = $"{player.getHealthPoints()}/{player.getMaxHealthPoints()}";
-            playerManaLabel.Text = $"{player.getMana()}/{player.getMaxMana()}";
-            enemyHealthPointsLabel.Text = $"{enemy.getHealthPoints()}/{enemy.getMaxHealthPoints()}";
+            playerHealthPointsLabel.Text = somethingFromSomething(player.getHealthPoints(), player.getMaxHealthPoints());
+            playerManaLabel.Text = somethingFromSomething(player.getMana(), player.getMaxMana());
+            enemyHealthPointsLabel.Text = somethingFromSomething(enemy.getHealthPoints(), enemy.getMaxHealthPoints());
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -83,21 +84,33 @@ namespace ByNumb.Forms
             {
                 case Keys.E:
                     enemy.GainDamage(player.CommonAttack());
+                    AddLog($"{player.getName()} attacked {enemy.getName()} with a common attack!", Color.GreenYellow);
+                    Thread.Sleep(1000);
                     player.GainDamage(enemy.getAttack(), mainScreen);
+                    AddLog($"{enemy.getName()} attacked {player.getName()}!", Color.Red);
                     break;
 
                 case Keys.R:
                     enemy.GainDamage(player.StrongAttack());
+                    AddLog($"{player.getName()} attacked {enemy.getName()} with a strong attack!", Color.DarkGreen);
+                    Thread.Sleep(1000);
                     player.GainDamage(enemy.getAttack(), mainScreen);
+                    AddLog($"{enemy.getName()} attacked {player.getName()}!", Color.Red);
                     break;
 
                 case Keys.Space:
                     player.GainDamage(enemy.getAttack() / 2, mainScreen);
+                    AddLog($"{player.getName()} set up a tight defense with his arms!", Color.DimGray);
+                    Thread.Sleep(1000);
+                    AddLog($"{enemy.getName()} attacked {player.getName()}!", Color.Red);
+                    AddLog($"Anyways, {enemy.getName()}'s attack blocked by {player.getName()}!", Color.DimGray);
                     break;
 
                 case Keys.Q:
                     player.Heal();
+                    AddLog($"{player.getName()} meditated for a while...", Color.LightGreen);
                     player.GainDamage(enemy.getAttack(), mainScreen);
+                    AddLog($"{enemy.getName()} attacked {player.getName()}!", Color.Red);
                     break;
             }
         }
@@ -113,7 +126,13 @@ namespace ByNumb.Forms
                 return $"{0}/{maxValue}";
             }
         }
+        private void AddLog(string log, Color color)
+        {
+            logBox.SelectionColor = color;
+            logBox.AppendText($"[{DateTime.Now.ToString("T")}] {log}\n");
+            logBox.ScrollToCaret();
+            logBox.SelectionColor = logBox.ForeColor;
+        }
 
-        
     }
 }

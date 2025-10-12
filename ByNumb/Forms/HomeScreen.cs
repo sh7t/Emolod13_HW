@@ -67,5 +67,15 @@ namespace ByNumb.Forms
                     break;
             }
         }
+
+        private void loadButton_Click(object sender, EventArgs e)
+        {
+            // 
+            //
+            // after file's lesson
+            //
+            //
+            MessageBox.Show("Your in-game achievements have been successfully loaded!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

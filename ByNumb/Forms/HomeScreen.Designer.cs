@@ -34,6 +34,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.musicInteractionButton = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.loadButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.musicInteractionButton)).BeginInit();
             this.SuspendLayout();
@@ -92,6 +93,16 @@
             this.label1.Text = "Notice: you cant switch further";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // loadButton
+            // 
+            this.loadButton.Location = new System.Drawing.Point(310, 325);
+            this.loadButton.Name = "loadButton";
+            this.loadButton.Size = new System.Drawing.Size(110, 37);
+            this.loadButton.TabIndex = 7;
+            this.loadButton.Text = "Load Game";
+            this.loadButton.UseVisualStyleBackColor = true;
+            this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
+            // 
             // HomeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -99,6 +110,7 @@
             this.BackgroundImage = global::ByNumb.Properties.Resources.MainMenu;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(724, 384);
+            this.Controls.Add(this.loadButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.musicInteractionButton);
             this.Controls.Add(this.pictureBox1);
@@ -124,5 +136,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox musicInteractionButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button loadButton;
     }
 }
