@@ -11,7 +11,7 @@ namespace ByNumb.Entities
         private int agility = 1;
         private int intelligence = 1;
         private int mana = 0, maxMana = 0;
-        private int gold = 0;
+        private int gold = 10000;
         private double criticalChance = 0;
         private Weapon weapon = null;
         private Armor armor = null;
