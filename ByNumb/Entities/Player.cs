@@ -1,4 +1,8 @@
-﻿using ByNumb.Items;
+﻿using ByNumb.Forms;
+using ByNumb.Items;
+using ByNumb.Services;
+using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace ByNumb.Entities
 {
@@ -19,7 +23,7 @@ namespace ByNumb.Entities
         // Init
         public Player(string name) : base(name)
         {
-            maxHealthPoints = healthPoints = this.endurance * 100;
+            maxHealthPoints = healthPoints = this.endurance * 50;
             maxMana = mana = this.intelligence * 50;
             criticalChance = this.agility * 0.5;
         }
@@ -62,30 +66,124 @@ namespace ByNumb.Entities
         public void setArmor(Armor armor) { this.armor = armor; }
 
         // Methods
+        public void GainExperience(int experience)
+        {
+            this.experience += experience;
+            while (this.experience > this.experienceForLevelUp)
+            {
+                this.experience -= this.experienceForLevelUp;
+                this.experienceForLevelUp += 10;
+                this.level++;
+            }
+        }
+        public void LoseExperience(int experience)
+        {
+            if (this.experience - experience > 0) { this.experience -= experience; }
+            else { this.experience = 0; }
+        }
+        public bool BuyItem(int price, string itemName)
+        {
+            if (this.gold >= price)
+            {
+                this.gold -= price;
+                MessageBox.Show($"Congratulations, you successfully bought a new item {itemName}!", "Brand-new!", MessageBoxButtons.OK);
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("You don't have enough gold to buy it! Try again later.", "Not enough money!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+        public void GainGold(int gold)
+        {
+            this.gold += gold;
+        }
+        public void LoseGold(int gold)
+        {
+            if (this.gold - gold > 0) { this.gold -= gold; }
+            else{ this.gold = 0; }
+        }
+        public void GainHP(int hp)
+        {
+            if (healthPoints < maxHealthPoints - hp) { healthPoints += hp;}
+            else { healthPoints = maxHealthPoints; }
+        }
+        public void GainMana(int mana)
+        {
+            if (this.mana < maxMana - mana) { this.mana += mana; }
+            else { this.mana = maxMana; }
+        }
+        public void GainDamage(int damage, MainScreen mainScreen)
+        {
+            if (damage > CalculateDefensePotential())
+            {
+                this.setHealthPoints(this.getHealthPoints() - (damage - this.CalculateDefensePotential()));
+            }
+            if (this.healthPoints <= 0) { mainScreen.WhenLose(); }
+        }
+
         public int CommonAttack()
         {
-            return (CalculateAttackPower() / 2); // unfinished
+            if (this.getMana() >= intelligence * 5)
+            {
+                this.setMana(this.getMana() - intelligence * 5);
+                return CalculateAttackPower();
+            }
+            else
+            {
+                return 0;
+            }
         }
         public int StrongAttack()
         {
-            return ((CalculateAttackPower() + level*2) / 2); // unfinished
+            if (this.getMana() >= intelligence * 15)
+            {
+                this.setMana(this.getMana() - intelligence * 15);
+                return CalculateAttackPower() + level * 2;
+            }
+            else
+            {
+                return 0;
+            }
+            
         }
-        public int Defense()
+        public void Heal()
         {
-            return 0; // unfinished
-        }
-        public int Healing()
-        {
-            return ((maxHealthPoints / 10)*2); // unfinished
+            if (this.getHealthPoints() < this.getMaxHealthPoints() - (this.getMaxHealthPoints() / 5))
+            {
+                this.setHealthPoints(this.getHealthPoints() + (this.getMaxHealthPoints() / 5));
+            }
+            if (this.getMana() < this.getMaxMana() - (this.getMaxMana() / 20))
+            {
+                this.setMana(this.getMaxMana() - (this.getMaxMana() / 20));
+            }
         }
 
         public int CalculateAttackPower()
         {
-            if (weapon != null)
+            if (CustomRandom.Next(1, 1001) <= ((int)(criticalChance * 10)))
             {
-                return (strength + weapon.getAttackBonus());
+                if (weapon != null)
+                {
+                    return (int)(1.5 * (strength + weapon.getAttackBonus()));
+                }
+                else
+                {
+                    return (int)1.5 * strength;
+                }
             }
-            return strength;
+            else
+            {
+                if (weapon != null)
+                {
+                    return strength + weapon.getAttackBonus();
+                }
+                else
+                {
+                    return strength;
+                }
+            }
         }
 
         public int CalculateDefensePotential()
@@ -106,15 +204,15 @@ namespace ByNumb.Entities
                                       $"\nGold: {getGold()}\nCriticalChance: {getCriticalChance()}%");
             if (weapon != null && armor != null)
             {
-                return (characteristics + "\nWeapon: {weapon.getName()}\nArmor: {armor.getName()}");
+                return (characteristics + $"\nWeapon: {weapon.getName()}(+{weapon.getAttackBonus()} Att)\nArmor: {armor.getName()}(+{armor.getDefenseBonus()} Def)");
             }
             else if (armor == null && weapon != null)
             {
-                return (characteristics + "\nWeapon: {weapon.getName()}");
+                return (characteristics + $"\nWeapon: {weapon.getName()}(+{weapon.getAttackBonus()} Att)");
             }
             else if (armor != null && weapon == null)
             {
-                return (characteristics + "\nArmor: {armor.getName()}");
+                return (characteristics + $"\nArmor: {armor.getName()}(+{armor.getDefenseBonus()} Def)");
             }
             else
             {

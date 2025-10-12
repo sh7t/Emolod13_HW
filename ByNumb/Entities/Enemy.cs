@@ -16,13 +16,11 @@ namespace ByNumb.Entities
         // Init
         public Enemy(string name, int level) : base(name)
         {
-            Random random = new Random();
-
             attack = level * 5;
             defense = level * 10;
-            maxHealthPoints = healthPoints = level * 100;
-            goldReward = 15 + (level - 1) * 10 + random.Next(1, 11);
-            experienceReward = 20 + (level - 1) * 10 + random.Next(1, 11);
+            maxHealthPoints = healthPoints = level * 30;
+            goldReward = 15 + (level - 1) * 10 + CustomRandom.Next(1, 11);
+            experienceReward = 20 + (level - 1) * 10 + CustomRandom.Next(1, 11);
         }
 
         // Get-set'ters
@@ -37,5 +35,14 @@ namespace ByNumb.Entities
 
         public int getExperienceReward() { return experienceReward; }
         public void setExperienceReward(int experienceReward) { this.experienceReward = experienceReward; }
+
+        // Methods
+        public void GainDamage(int damage)
+        {
+            if (damage > this.getDefense())
+            {
+                this.setHealthPoints(this.getHealthPoints() - (damage - this.getDefense()));
+            }
+        }
     }
 }

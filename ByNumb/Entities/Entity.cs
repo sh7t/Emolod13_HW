@@ -28,5 +28,6 @@ namespace ByNumb.Entities
 
         public int getMaxHealthPoints() { return maxHealthPoints; }
         public void setMaxHealthPoints(int maxHealthPoints) { this.maxHealthPoints = maxHealthPoints; }
+
     }
 }

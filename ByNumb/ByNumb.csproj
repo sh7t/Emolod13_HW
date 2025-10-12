@@ -52,23 +52,17 @@
     <Compile Include="Entities\Enemy.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\Player.cs" />
-    <Compile Include="Forms\Event.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Event.Designer.cs">
-      <DependentUpon>Event.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\HomeScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\HomeScreen.Designer.cs">
       <DependentUpon>HomeScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\LosingScreen.cs">
+    <Compile Include="Forms\Fight.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\LosingScreen.Designer.cs">
-      <DependentUpon>LosingScreen.cs</DependentUpon>
+    <Compile Include="Forms\Fight.Designer.cs">
+      <DependentUpon>Fight.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainScreen.cs">
       <SubType>Form</SubType>
@@ -87,21 +81,22 @@
     <Compile Include="Items\Weapon.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Services\ArmorGenerator.cs" />
+    <Compile Include="Services\CustomRandom.cs" />
     <Compile Include="Services\EnemyGenerator.cs" />
     <Compile Include="Services\GameEngine.cs" />
+    <Compile Include="Services\Mystery.cs" />
     <Compile Include="Services\WeaponGenerator.cs" />
-    <EmbeddedResource Include="Forms\Event.resx">
-      <DependentUpon>Event.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\HomeScreen.en-US.resx">
-      <DependentUpon>HomeScreen.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\HomeScreen.resx">
       <DependentUpon>HomeScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\LosingScreen.resx">
-      <DependentUpon>LosingScreen.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Fight.resx">
+      <DependentUpon>Fight.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainScreen.resx">
       <DependentUpon>MainScreen.cs</DependentUpon>
@@ -111,14 +106,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <None Include="Assets\Images\Screens\LosingScreen.png" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -132,13 +123,33 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\Sounds\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Assets\Icons\Reign of Pure Glory.ico" />
-    <Content Include="Assets\Images\MainMenu.jpg" />
-    <None Include="Assets\Images\Player.png" />
+    <None Include="Assets\Images\Screens\FightingScreen.png" />
+    <None Include="Assets\Images\Entities\Enemy.png" />
+    <Content Include="Assets\Images\Details\FakeButton.png" />
+    <Content Include="Assets\Images\Details\MainScreenLogo.png" />
+    <Content Include="Assets\Images\Details\MuteButton.png" />
+    <Content Include="Assets\Images\Details\PlayButton.png" />
+    <Content Include="Assets\Images\Details\Reign of Pure Glory.png" />
+    <Content Include="Assets\Images\Items\Armors\FifthArmor.png" />
+    <Content Include="Assets\Images\Items\Armors\FirstArmor.png" />
+    <Content Include="Assets\Images\Items\Armors\FourthArmor.png" />
+    <Content Include="Assets\Images\Items\Armors\OutOfStockArmor.png" />
+    <Content Include="Assets\Images\Items\Armors\SecondArmor.png" />
+    <Content Include="Assets\Images\Items\Armors\ThirdArmor.png" />
+    <Content Include="Assets\Images\Items\Weapons\fifthSword.png" />
+    <Content Include="Assets\Images\Items\Weapons\firstSword.png" />
+    <Content Include="Assets\Images\Items\Weapons\fourthSword.png" />
+    <Content Include="Assets\Images\Items\Weapons\OutOfStockWeapon.png" />
+    <Content Include="Assets\Images\Items\Weapons\secondSword.png" />
+    <Content Include="Assets\Images\Items\Weapons\thirdSword.png" />
+    <Content Include="Assets\Images\Screens\MainMenu.jpg" />
+    <None Include="Assets\Images\Entities\Player.png" />
+    <None Include="Assets\Images\Screens\ShopScreen.jpg" />
+    <Content Include="Assets\Images\Screens\ShopScreen.png" />
+    <Content Include="Assets\Sounds\mainTheme.wav" />
     <Content Include="Reign of Pure Glory.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

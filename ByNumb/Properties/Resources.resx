@@ -118,13 +118,82 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Reign of Pure Glory" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\Icons\Reign of Pure Glory.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DeadPlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Entities\DeadPlayer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FightingScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Screens\FightingScreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MainMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\Images\MainMenu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Assets\Images\Screens\MainMenu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainTheme" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Sounds\mainTheme.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Reign of Pure Glory icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Icons\Reign of Pure Glory.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Reign of Pure Glory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Details\Reign of Pure Glory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Player" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\Images\Player.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Assets\Images\Entities\Player.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Enemy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Entities\Enemy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LosingScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Screens\LosingScreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FakeButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Details\FakeButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ShopScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Screens\ShopScreen.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainScreenLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Details\MainScreenLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PlayButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Details\PlayButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MuteButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Details\MuteButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FirstArmor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Items\Armors\FirstArmor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SecondArmor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Items\Armors\SecondArmor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ThirdArmor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Items\Armors\ThirdArmor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FourthArmor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Items\Armors\FourthArmor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FifthArmor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Items\Armors\FifthArmor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FirstSword" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Items\Weapons\FirstSword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SecondSword" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Items\Weapons\SecondSword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ThirdSword" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Items\Weapons\ThirdSword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FourthSword" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Items\Weapons\FourthSword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FifthSword" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Items\Weapons\FifthSword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OutOfStockSword" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Items\Weapons\OutOfStockSword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OutOfStockArmor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Items\Armors\OutOfStockArmor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

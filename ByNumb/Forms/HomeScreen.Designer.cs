@@ -30,6 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeScreen));
             this.playButton = new System.Windows.Forms.Button();
+            this.playerNameTextBox = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.musicInteractionButton = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.musicInteractionButton)).BeginInit();
             this.SuspendLayout();
             // 
             // playButton
@@ -43,6 +49,49 @@
             this.playButton.UseVisualStyleBackColor = true;
             this.playButton.Click += new System.EventHandler(this.playButton_Click);
             // 
+            // playerNameTextBox
+            // 
+            this.playerNameTextBox.Font = new System.Drawing.Font("Impact", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.playerNameTextBox.Location = new System.Drawing.Point(245, 220);
+            this.playerNameTextBox.Name = "playerNameTextBox";
+            this.playerNameTextBox.Size = new System.Drawing.Size(250, 43);
+            this.playerNameTextBox.TabIndex = 2;
+            this.playerNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::ByNumb.Properties.Resources.MainScreenLogo;
+            this.pictureBox1.Location = new System.Drawing.Point(12, -2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(724, 216);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // musicInteractionButton
+            // 
+            this.musicInteractionButton.BackColor = System.Drawing.Color.Transparent;
+            this.musicInteractionButton.Image = global::ByNumb.Properties.Resources.PlayButton;
+            this.musicInteractionButton.Location = new System.Drawing.Point(628, 296);
+            this.musicInteractionButton.Name = "musicInteractionButton";
+            this.musicInteractionButton.Size = new System.Drawing.Size(84, 76);
+            this.musicInteractionButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.musicInteractionButton.TabIndex = 4;
+            this.musicInteractionButton.TabStop = false;
+            this.musicInteractionButton.Click += new System.EventHandler(this.musicInteractionButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(626, 269);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 40);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Notice: you cant switch further";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // HomeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -50,6 +99,10 @@
             this.BackgroundImage = global::ByNumb.Properties.Resources.MainMenu;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(724, 384);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.musicInteractionButton);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.playerNameTextBox);
             this.Controls.Add(this.playButton);
             this.Cursor = System.Windows.Forms.Cursors.Cross;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -58,11 +111,18 @@
             this.Name = "HomeScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RPG: Reign of Pure Glory";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.musicInteractionButton)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.Button playButton;
+        private System.Windows.Forms.TextBox playerNameTextBox;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox musicInteractionButton;
+        private System.Windows.Forms.Label label1;
     }
 }
