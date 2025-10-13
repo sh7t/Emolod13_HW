@@ -1,13 +1,6 @@
 ﻿using ByNumb.Entities;
 using ByNumb.Services;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ByNumb.Forms
@@ -15,10 +8,10 @@ namespace ByNumb.Forms
     public partial class MainScreen : Form
     {
         private Player player;
-        public MainScreen(string playerName)
+        public MainScreen(Player _player)
         {
             InitializeComponent();
-            player = new Player(playerName);
+            player = _player;
         }
 
         private void MainScreen_Load(object sender, EventArgs e)
@@ -35,44 +28,25 @@ namespace ByNumb.Forms
             GameEngine.ChooseEventType(this, player);
         }
 
-        public void WhenWin()
-        {
-            player.setStrength(player.getLevel());
-            player.setAgility(player.getLevel());
-            player.setEndurance(player.getLevel());
-            player.setIntelligence(player.getLevel());
-            player.setMaxHealthPoints(player.getEndurance() * 50);
-            player.setMaxMana(player.getIntelligence() * 50);
-            player.setCriticalChance(player.getAgility() * 0.5);
-        }
         public void WhenLose()
         {
             BackgroundImage = global::ByNumb.Properties.Resources.LosingScreen;
             playerImage.Image = global::ByNumb.Properties.Resources.DeadPlayer;
-
             FakeButtonImage.Show();
             turnButton.Hide();
+            saveButton.Hide();
 
-            player.setHealthPoints(0);
-            player.setMana(0);
-            player.setExperience(0);
-            player.setExperienceForLevelUp(0);
-            player.setName($"Dead {player.getName()}");
-            player.setCriticalChance(0);
+            GameEngine.WhenLose(player);
         }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            SaveLoadService.Save(player);
+        }
+
         public void UpdateCharacteristics(Player player)
         {
             playerCharacteristics.Text = player.ShowCharacteristics();
-        }
-
-        private void loadButton_Click(object sender, EventArgs e)
-        {
-            //
-            //
-            // after file's lesson 
-            //
-            //
-            MessageBox.Show("Your in-game achievements have been successfully saved!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

@@ -185,7 +185,7 @@
             this.firstItemPriceLabel.TabIndex = 11;
             this.firstItemPriceLabel.Text = "firstItem";
             this.firstItemPriceLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.firstItemPriceLabel.Click += new System.EventHandler(this.firstItemPriceLabel_Click);
+            this.firstItemPriceLabel.Click += new System.EventHandler(this.thirdItemLabel_Click);
             // 
             // secondItemPriceLabel
             // 
@@ -197,7 +197,7 @@
             this.secondItemPriceLabel.TabIndex = 12;
             this.secondItemPriceLabel.Text = "secondItem";
             this.secondItemPriceLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.secondItemPriceLabel.Click += new System.EventHandler(this.secondItemPriceLabel_Click);
+            this.secondItemPriceLabel.Click += new System.EventHandler(this.secondItemLabel_Click);
             // 
             // thirdItemPriceLabel
             // 
@@ -209,7 +209,7 @@
             this.thirdItemPriceLabel.TabIndex = 13;
             this.thirdItemPriceLabel.Text = "thirdItem";
             this.thirdItemPriceLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.thirdItemPriceLabel.Click += new System.EventHandler(this.thirdItemPriceLabel_Click);
+            this.thirdItemPriceLabel.Click += new System.EventHandler(this.thirdItemLabel_Click);
             // 
             // fourthItemPriceLabel
             // 
@@ -221,7 +221,7 @@
             this.fourthItemPriceLabel.TabIndex = 14;
             this.fourthItemPriceLabel.Text = "fourthItem";
             this.fourthItemPriceLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.fourthItemPriceLabel.Click += new System.EventHandler(this.fourthItemPriceLabel_Click);
+            this.fourthItemPriceLabel.Click += new System.EventHandler(this.fourthItemLabel_Click);
             // 
             // fifthItemPriceLabel
             // 
@@ -233,7 +233,7 @@
             this.fifthItemPriceLabel.TabIndex = 15;
             this.fifthItemPriceLabel.Text = "fifthItem";
             this.fifthItemPriceLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.fifthItemPriceLabel.Click += new System.EventHandler(this.fifthItemPriceLabel_Click);
+            this.fifthItemPriceLabel.Click += new System.EventHandler(this.fifthItemLabel_Click);
             // 
             // Shop
             // 

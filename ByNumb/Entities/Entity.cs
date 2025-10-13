@@ -1,19 +1,24 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 
 namespace ByNumb.Entities
 {
     public abstract class Entity
     {
         // Fields
+        [JsonInclude]
         protected string name = null;
+        [JsonInclude]
         protected int level = 1;
+        [JsonInclude]
         protected int healthPoints = 0;
+        [JsonInclude]
         protected int maxHealthPoints = 0;
 
         // Init
-        public Entity(string name)
+        public Entity(string _name)
         {
-            this.name = name;
+            name = _name;
         }
 
         // Get-set'tters

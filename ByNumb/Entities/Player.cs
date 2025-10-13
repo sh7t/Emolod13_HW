@@ -1,31 +1,41 @@
 ﻿using ByNumb.Forms;
 using ByNumb.Items;
 using ByNumb.Services;
+using System.Text.Json.Serialization;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace ByNumb.Entities
 {
     public class Player : Entity
     {
         // Fields
+        [JsonInclude]
         private int experience = 0, experienceForLevelUp = 10;
+        [JsonInclude]
         private int strength = 1;
+        [JsonInclude]
         private int endurance = 1;
+        [JsonInclude]
         private int agility = 1;
+        [JsonInclude]
         private int intelligence = 1;
+        [JsonInclude]
         private int mana = 0, maxMana = 0;
+        [JsonInclude]
         private int gold = 0;
+        [JsonInclude]
         private double criticalChance = 0;
+        [JsonInclude]
         private Weapon weapon = null;
+        [JsonInclude]
         private Armor armor = null;
 
         // Init
         public Player(string name) : base(name)
         {
-            maxHealthPoints = healthPoints = this.endurance * 50;
-            maxMana = mana = this.intelligence * 50;
-            criticalChance = this.agility * 0.5;
+            maxHealthPoints = healthPoints = endurance * 50;
+            maxMana = mana = intelligence * 50;
+            criticalChance = agility * 0.5;
         }
 
         // Get-set'ters
@@ -150,13 +160,16 @@ namespace ByNumb.Entities
         }
         public void Heal()
         {
-            if (this.getHealthPoints() < this.getMaxHealthPoints() - (this.getMaxHealthPoints() / 5))
+            this.setHealthPoints(this.getHealthPoints() + (this.getMaxHealthPoints() / 5));
+            this.setMana(this.getMana() + (this.getMaxMana() / 10));
+
+            if (this.getHealthPoints() > this.getMaxHealthPoints())
             {
-                this.setHealthPoints(this.getHealthPoints() + (this.getMaxHealthPoints() / 5));
+                this.setHealthPoints(this.getMaxHealthPoints());
             }
-            if (this.getMana() < this.getMaxMana() - (this.getMaxMana() / 20))
+            if (this.getMana() > this.getMaxMana())
             {
-                this.setMana(this.getMaxMana() - (this.getMaxMana() / 20));
+                this.setMana(this.getMaxMana());
             }
         }
 

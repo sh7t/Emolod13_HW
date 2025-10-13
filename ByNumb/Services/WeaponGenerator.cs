@@ -24,7 +24,7 @@ namespace ByNumb.Services
 
             Weapon weapon = new Weapon(
                  weaponNames[CustomRandom.Next(0, weaponNames.Length)],
-                 dmg * (40 + CustomRandom.Next(1, 11)),
+                 dmg * CustomRandom.Next(1, 11),
                  dmg
                  );
             return weapon;

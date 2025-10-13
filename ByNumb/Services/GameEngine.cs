@@ -2,6 +2,7 @@
 using ByNumb.Forms;
 using System;
 using System.Media;
+using System.Numerics;
 using System.Windows.Forms;
 
 namespace ByNumb.Services
@@ -46,13 +47,13 @@ namespace ByNumb.Services
 
                 case EventType.Shopping:
                     MessageBox.Show("You've found a mysterious shop!\nHope you'll find some things for yourself.", "Shopping coming", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    // mainScreen.Hide();
-                    // new Shop(player, mainScreen).ShowDialog();
+                    mainScreen.Hide();
+                    new Shop(player, mainScreen).ShowDialog();
                     mainScreen.UpdateCharacteristics(player);
                     break;
 
                 case EventType.Mystery:
-                    // player = Mystery.MysteryRandom(player, mainScreen);
+                    player = Mystery.MysteryRandom(player, mainScreen);
                     mainScreen.UpdateCharacteristics(player);
                     break;
 
@@ -61,7 +62,17 @@ namespace ByNumb.Services
             }
 
         }
-
+        public static string somethingFromSomething(int value, int maxValue)
+        {
+            if (value >= 0)
+            {
+                return $"{value}/{maxValue}";
+            }
+            else
+            {
+                return $"{0}/{maxValue}";
+            }
+        }
         public static void PlayMainTheme()
         {
             soundPlayer.PlayLooping();
@@ -70,6 +81,24 @@ namespace ByNumb.Services
         {
             soundPlayer.Stop();
         }
-
+        public static void WhenWin(Player player)
+        {
+            player.setStrength(player.getLevel());
+            player.setAgility(player.getLevel());
+            player.setEndurance(player.getLevel());
+            player.setIntelligence(player.getLevel());
+            player.setMaxHealthPoints(player.getEndurance() * 50);
+            player.setMaxMana(player.getIntelligence() * 50);
+            player.setCriticalChance(player.getAgility() * 0.5);
+        }
+        public static void WhenLose(Player player)
+        {
+            player.setHealthPoints(0);
+            player.setMana(0);
+            player.setExperience(0);
+            player.setExperienceForLevelUp(0);
+            if (!player.getName().StartsWith("Dead")) { player.setName($"Dead {player.getName()}"); }
+            player.setCriticalChance(0);
+        }
     }
 }

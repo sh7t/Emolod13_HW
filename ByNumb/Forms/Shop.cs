@@ -38,8 +38,6 @@ namespace ByNumb.Forms
                 fifthItem.Image= Properties.Resources.FifthArmor;
                 
                 items = ArmorGenerator.GenerateArmorArray(5, player.getLevel());
-
-
             }
             else
             {
@@ -50,26 +48,11 @@ namespace ByNumb.Forms
                 fifthItem.Image = Properties.Resources.FifthSword;
 
                 items = WeaponGenerator.GenerateWeaponArray(5, player.getLevel());
-
-                
             }
             ShowItemCharacteristics(items);
         }
 
-        private void ShowItemCharacteristics(Item[] items)
-        {
-            firstItemLabel.Text = $"{items[0].getName()}";
-            secondItemLabel.Text = $"{items[1].getName()}";
-            thirdItemLabel.Text = $"{items[2].getName()}";
-            fourthItemLabel.Text = $"{items[3].getName()}";
-            fifthItemLabel.Text = $"{items[4].getName()}";
-
-            firstItemPriceLabel.Text = $"for {items[0].getPrice()} gold";
-            secondItemPriceLabel.Text = $"for {items[1].getPrice()} gold";
-            thirdItemPriceLabel.Text = $"for {items[2].getPrice()} gold";
-            fourthItemPriceLabel.Text = $"for {items[3].getPrice()} gold";
-            fifthItemPriceLabel.Text = $"for {items[4].getPrice()} gold";
-        }
+        
 
         private void firstItemLabel_Click(object sender, EventArgs e)
         {
@@ -161,13 +144,14 @@ namespace ByNumb.Forms
                 }
             }
         }
-
         private bool ClickAndBuy(byte arrayIndex, bool isBuyed)
         {
+            DialogResult dialogResult;
             if (!isBuyed)
             {
-                DialogResult dialogResult = MessageBox.Show($"You want to buy {items[arrayIndex].getName()}.\nPrice: {items[arrayIndex].getPrice()}\nAre you sure?",
-                $"{items[arrayIndex].getName()}", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+                if (items[arrayIndex] is Armor armor) { dialogResult = MessageBox.Show($"You want to buy {items[arrayIndex].getName()}.\nPrice: {items[arrayIndex].getPrice()}\nDefense Bonus: +{((Armor)items[arrayIndex]).getDefenseBonus()} Def\n\nYour gold: {player.getGold()}\n\nAre you sure?", $"{items[arrayIndex].getName()}", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information); }
+                else { dialogResult = MessageBox.Show($"You want to buy {items[arrayIndex].getName()}.\nPrice: {items[arrayIndex].getPrice()}\nAttack Bonus: +{((Weapon)items[arrayIndex]).getAttackBonus()} Att\n\nYour gold: {player.getGold()}\n\nAre you sure?", $"{items[arrayIndex].getName()}", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information); }
+                
                 if (dialogResult == DialogResult.Yes)
                 {
                     isBuyed = player.BuyItem(items[arrayIndex].getPrice(), items[arrayIndex].getName());
@@ -187,26 +171,19 @@ namespace ByNumb.Forms
             mainScreen.Show();
             this.Close();
         }
+        private void ShowItemCharacteristics(Item[] items)
+        {
+            firstItemLabel.Text = $"{items[0].getName()}";
+            secondItemLabel.Text = $"{items[1].getName()}";
+            thirdItemLabel.Text = $"{items[2].getName()}";
+            fourthItemLabel.Text = $"{items[3].getName()}";
+            fifthItemLabel.Text = $"{items[4].getName()}";
 
-        private void firstItemPriceLabel_Click(object sender, EventArgs e)
-        {
-            firstItemLabel_Click(sender, e);
-        }
-        private void secondItemPriceLabel_Click(object sender, EventArgs e)
-        {
-            secondItemLabel_Click(sender, e);
-        }
-        private void thirdItemPriceLabel_Click(object sender, EventArgs e)
-        {
-            thirdItemLabel_Click(sender, e);
-        }
-        private void fourthItemPriceLabel_Click(object sender, EventArgs e)
-        {
-            fourthItemLabel_Click(sender, e);
-        }
-        private void fifthItemPriceLabel_Click(object sender, EventArgs e)
-        {
-            fifthItemLabel_Click(sender, e);
+            firstItemPriceLabel.Text = $"for {items[0].getPrice()} gold";
+            secondItemPriceLabel.Text = $"for {items[1].getPrice()} gold";
+            thirdItemPriceLabel.Text = $"for {items[2].getPrice()} gold";
+            fourthItemPriceLabel.Text = $"for {items[3].getPrice()} gold";
+            fifthItemPriceLabel.Text = $"for {items[4].getPrice()} gold";
         }
     }
 }

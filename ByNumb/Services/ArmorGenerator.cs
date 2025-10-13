@@ -24,7 +24,7 @@ namespace ByNumb.Services
 
             Armor armor = new Armor(
                 armorNames[CustomRandom.Next(0, armorNames.Length)],
-                def * (40 + CustomRandom.Next(1, 11)),
+                def * CustomRandom.Next(1, 11),
                 def
                 );
             return armor;

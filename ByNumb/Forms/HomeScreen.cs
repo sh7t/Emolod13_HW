@@ -1,13 +1,6 @@
-﻿using ByNumb.Services;
+﻿using ByNumb.Entities;
+using ByNumb.Services;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Media;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ByNumb.Forms
@@ -26,7 +19,7 @@ namespace ByNumb.Forms
             if (playerNameTextBox.Text.Length >= 2 && playerNameTextBox.Text.Length <= 12)
             {
                 this.Hide();
-                MainScreen mainScreen = new MainScreen(char.ToUpper(playerNameTextBox.Text[0]) + playerNameTextBox.Text.Substring(1));
+                MainScreen mainScreen = new MainScreen(new Player(char.ToUpper(playerNameTextBox.Text[0]) + playerNameTextBox.Text.Substring(1)));
                 mainScreen.ShowDialog();
                 this.Close();
             }
@@ -70,12 +63,11 @@ namespace ByNumb.Forms
 
         private void loadButton_Click(object sender, EventArgs e)
         {
-            // 
-            //
-            // after file's lesson
-            //
-            //
-            MessageBox.Show("Your in-game achievements have been successfully loaded!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Player player = SaveLoadService.Load();                                       
+            this.Hide();
+            MainScreen mainScreen = new MainScreen(player);
+            mainScreen.ShowDialog();
+            this.Close();
         }
     }
 }

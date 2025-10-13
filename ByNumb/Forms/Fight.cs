@@ -29,6 +29,9 @@ namespace ByNumb.Forms
 
         private void Fight_Load(object sender, EventArgs e)
         {
+            player.setHealthPoints(player.getMaxHealthPoints());
+            player.setMana(player.getMaxMana());
+
             playerNameLabel.Text = player.getName();
             enemyNameLabel.Text = enemy.getName();
 
@@ -40,9 +43,9 @@ namespace ByNumb.Forms
             playerManaProgressBar.Value = player.getMana();
             enemyHealthPoinntsProgressBar.Value = enemy.getHealthPoints();
 
-            playerHealthPointsLabel.Text = somethingFromSomething(player.getHealthPoints(), player.getMaxHealthPoints());
-            playerManaLabel.Text = somethingFromSomething(player.getMana(), player.getMaxMana());
-            enemyHealthPointsLabel.Text = somethingFromSomething(enemy.getHealthPoints(), enemy.getMaxHealthPoints());
+            playerHealthPointsLabel.Text = GameEngine.somethingFromSomething(player.getHealthPoints(), player.getMaxHealthPoints());
+            playerManaLabel.Text = GameEngine.somethingFromSomething(player.getMana(), player.getMaxMana());
+            enemyHealthPointsLabel.Text = GameEngine.somethingFromSomething(enemy.getHealthPoints(), enemy.getMaxHealthPoints());
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -51,9 +54,9 @@ namespace ByNumb.Forms
             playerManaProgressBar.Value = Math.Max(0, player.getMana());
             enemyHealthPoinntsProgressBar.Value = Math.Max(0, enemy.getHealthPoints());
 
-            playerHealthPointsLabel.Text = somethingFromSomething(player.getHealthPoints(), player.getMaxHealthPoints());
-            playerManaLabel.Text = somethingFromSomething(player.getMana(), player.getMaxMana());
-            enemyHealthPointsLabel.Text = somethingFromSomething(enemy.getHealthPoints(), enemy.getMaxHealthPoints());
+            playerHealthPointsLabel.Text = GameEngine.somethingFromSomething(player.getHealthPoints(), player.getMaxHealthPoints());
+            playerManaLabel.Text = GameEngine.somethingFromSomething(player.getMana(), player.getMaxMana());
+            enemyHealthPointsLabel.Text = GameEngine.somethingFromSomething(enemy.getHealthPoints(), enemy.getMaxHealthPoints());
 
 
             if (player.getHealthPoints() <= 0)
@@ -70,7 +73,7 @@ namespace ByNumb.Forms
                 MessageBox.Show("You brought this bastard to his knees, congratulation!", $"Great job, {player.getName()}.");
                 player.setGold(player.getGold() + enemy.getGoldReward());
                 player.GainExperience(enemy.getExperienceReward());
-                mainScreen.WhenWin();
+                GameEngine.WhenWin(player);
                 mainScreen.Show();
                 Close();
             }
@@ -83,56 +86,36 @@ namespace ByNumb.Forms
             switch(e.KeyCode)
             {
                 case Keys.E:
+                    if (player.getMana() >= player.getIntelligence() * 5) { Logger.AddLog($"{player.getName()} attacked {enemy.getName()} with a common attack!", Color.MediumSeaGreen, logBox); }
+                    else { Logger.AddLog($"{player.getName()} can't do common attack because of mana, meditate!", Color.MediumVioletRed, logBox); }
                     enemy.GainDamage(player.CommonAttack());
-                    AddLog($"{player.getName()} attacked {enemy.getName()} with a common attack!", Color.GreenYellow);
-                    Thread.Sleep(1000);
                     player.GainDamage(enemy.getAttack(), mainScreen);
-                    AddLog($"{enemy.getName()} attacked {player.getName()}!", Color.Red);
+                    Logger.AddLog($"{enemy.getName()} attacked {player.getName()}!", Color.Red, logBox);
                     break;
 
                 case Keys.R:
+                    if (player.getMana() >= player.getIntelligence() * 15) { Logger.AddLog($"{player.getName()} attacked {enemy.getName()} with a strong attack!", Color.DarkGreen, logBox); }
+                    else { Logger.AddLog($"{player.getName()} can't do strong attack because of mana, meditate!", Color.MediumVioletRed, logBox); }
                     enemy.GainDamage(player.StrongAttack());
-                    AddLog($"{player.getName()} attacked {enemy.getName()} with a strong attack!", Color.DarkGreen);
-                    Thread.Sleep(1000);
                     player.GainDamage(enemy.getAttack(), mainScreen);
-                    AddLog($"{enemy.getName()} attacked {player.getName()}!", Color.Red);
+                    Logger.AddLog($"{enemy.getName()} attacked {player.getName()}!", Color.Red, logBox);
                     break;
 
                 case Keys.Space:
                     player.GainDamage(enemy.getAttack() / 2, mainScreen);
-                    AddLog($"{player.getName()} set up a tight defense with his arms!", Color.DimGray);
-                    Thread.Sleep(1000);
-                    AddLog($"{enemy.getName()} attacked {player.getName()}!", Color.Red);
-                    AddLog($"Anyways, {enemy.getName()}'s attack blocked by {player.getName()}!", Color.DimGray);
+                    Logger.AddLog($"{player.getName()} set up a tight defense with his arms!", Color.DimGray, logBox);
+                    Logger.AddLog($"{enemy.getName()} attacked {player.getName()}!", Color.Red, logBox);
+                    Logger.AddLog($"Anyways, {enemy.getName()}'s attack blocked by {player.getName()}!", Color.DimGray, logBox);
                     break;
 
                 case Keys.Q:
                     player.Heal();
-                    AddLog($"{player.getName()} meditated for a while...", Color.LightGreen);
+                    Logger.AddLog($"{player.getName()} meditated for a while...", Color.MediumSeaGreen, logBox);
                     player.GainDamage(enemy.getAttack(), mainScreen);
-                    AddLog($"{enemy.getName()} attacked {player.getName()}!", Color.Red);
+                    Logger.AddLog($"{enemy.getName()} attacked {player.getName()}!", Color.Red, logBox);
                     break;
             }
+            e.SuppressKeyPress = true;
         }
-
-        private string somethingFromSomething(int value, int maxValue)
-        {
-            if (value >= 0)
-            {
-                return $"{value}/{maxValue}";
-            }
-            else
-            {
-                return $"{0}/{maxValue}";
-            }
-        }
-        private void AddLog(string log, Color color)
-        {
-            logBox.SelectionColor = color;
-            logBox.AppendText($"[{DateTime.Now.ToString("T")}] {log}\n");
-            logBox.ScrollToCaret();
-            logBox.SelectionColor = logBox.ForeColor;
-        }
-
     }
 }
