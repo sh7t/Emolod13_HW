@@ -175,6 +175,7 @@
     <Content Include="Reign of Pure Glory.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- 
   <Target Name="MoveDlls" AfterTargets="Build"> 
     <MakeDir Directories="$(TargetDir)data" />
       <ItemGroup>
@@ -182,4 +183,5 @@
       </ItemGroup>
     <Move SourceFiles="@(DllFiles)" DestinationFolder="$(TargetDir)data" OverwriteReadOnlyFiles="true" />
   </Target>
+  -->
 </Project>
