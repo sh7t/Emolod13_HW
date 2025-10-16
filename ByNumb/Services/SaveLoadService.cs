@@ -17,7 +17,6 @@ namespace ByNumb.Services
         public static void Save(Player player)
         {
             File.WriteAllText(path, JsonSerializer.Serialize(player, option));
-            MessageBox.Show(JsonSerializer.Serialize(player, option));
             MessageBox.Show("Your in-game achievements have been successfully saved!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -30,7 +29,7 @@ namespace ByNumb.Services
                
             }
             Player player = JsonSerializer.Deserialize<Player>(File.ReadAllText(path), option) ?? new Player("Player");
-            MessageBox.Show("Your in-game achievements have been successfully loaded!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"Your in-game achievements have been successfully loaded, {player.getName()}!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return player;
 
         } 
